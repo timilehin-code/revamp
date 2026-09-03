@@ -97,7 +97,6 @@ function sendEmail() {
     });
 }
 
-
 // lenis js for smooth scroll
 
 const lenis = new Lenis();
@@ -108,3 +107,35 @@ function raf(time) {
 
 requestAnimationFrame(raf);
 // liquid glass displacement effect
+
+// current year in roman numerals
+function toRoman(year) {
+  const lookup = {
+    M: 1000,
+    CM: 900,
+    D: 500,
+    CD: 400,
+    C: 100,
+    XC: 90,
+    L: 50,
+    XL: 40,
+    X: 10,
+    IX: 9,
+    V: 5,
+    IV: 4,
+    I: 1,
+  };
+  let roman = "";
+  for (let key in lookup) {
+    while (year >= lookup[key]) {
+      roman += key;
+      year -= lookup[key];
+    }
+  }
+  return roman;
+}
+const currentYear = new Date().getFullYear();
+console.log(toRoman(currentYear));
+
+// Set the current year in the footer
+document.getElementById("currentYear").textContent = toRoman(currentYear);

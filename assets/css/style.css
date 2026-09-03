@@ -436,12 +436,19 @@ nav h5 {
   -moz-box-shadow: 2px 2px 22px -3px rgba(0, 0, 0, 0.75);
 }
 
+
+
 .f-socials i:hover {
   color: var(--to-white-900);
   background-color: var(--to-purple);
 }
 
+.currentYear {
+  color: var(--to-purple) ;
+  font-weight: bold;
+}
+
 .footer h5 {
-  margin-top: 5px;
+  margin-top: 30px;
   color: var(--to-white);
 }
