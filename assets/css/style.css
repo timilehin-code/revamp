@@ -392,28 +392,28 @@ nav h5 {
 .contact form button {
   background-color: var(--to-purple);
   color: var(--to-white-900);
-  padding-left: 40px;
-  padding-right: 40px;
+  padding-left: 50px;
+  padding-right: 50px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  border: none;
+  border-radius: 5px;
 }
 
 .contact form a:hover {
-  color: var(--to-white-900);
+  color: var(--to-white-900) !important;
 }
 
 .footer {
+  display: flex !important;
+  flex-direction: column !important;
   justify-content: center !important;
   align-items: center !important;
   margin: auto;
-  width: 40%;
 }
 
-.footer ul {
-  margin-left: 100px;
-}
 
-.footer ul li {
-  padding: 0 10px;
-}
+
 
 .footer ul li a {
   text-decoration: none;
@@ -421,9 +421,6 @@ nav h5 {
   font-size: 20px;
 }
 
-.f-socials {
-  margin-left: 30px;
-}
 
 .f-socials i {
   padding: 15px;
