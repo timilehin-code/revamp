@@ -15,6 +15,7 @@ html {
   --to-light-grey: #a1a1a1;
   --to-white-900: #ffffff;
   --animation-speed: 50s;
+  --gradient-bg:linear-gradient(90deg,rgba(73, 55, 143, 1) 0%, rgba(0, 90, 174, 1) 25%, rgba(0, 120, 189, 1) 44%, rgba(0, 146, 188, 1) 63%, rgba(0, 170, 178, 1) 81%, rgba(63, 191, 166, 1) 98%);
 }
 
 .lightmode {
@@ -30,6 +31,15 @@ html {
   --to-light-grey: #3f3f3f;
   --to-white-900: #ffffff;
   --animation-speed: 50s;
+  --gradient-bg:linear-gradient(
+      90deg,
+      rgba(73, 55, 143, 1) 0%,
+      rgba(165, 59, 141, 1) 25%,
+      rgba(227, 82, 122, 1) 44%,
+      rgba(255, 131, 99, 1) 63%,
+      rgba(255, 189, 87, 1) 81%,
+      rgba(249, 248, 113, 1) 98%
+    );
 }
 
 body {
@@ -70,7 +80,6 @@ nav h5 {
   font-style: normal;
   color: var(--to-white);
   font-size: 15px;
-  
 }
 
 .nav-links {
@@ -85,7 +94,7 @@ nav h5 {
   -webkit-box-shadow: 2px 2px 22px -3px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: 2px 2px 22px -3px rgba(0, 0, 0, 0.75);
 }
-.links{
+.links {
   display: flex;
   gap: 25px;
   position: sticky;
@@ -102,7 +111,6 @@ nav h5 {
 .links a:hover {
   color: var(--to-purple);
   border-bottom: 2px solid var(--to-purple);
-
 }
 
 .toggler {
@@ -412,15 +420,11 @@ nav h5 {
   margin: auto;
 }
 
-
-
-
 .footer ul li a {
   text-decoration: none;
   color: var(--to-white);
   font-size: 20px;
 }
-
 
 .f-socials i {
   padding: 15px;
@@ -433,19 +437,80 @@ nav h5 {
   -moz-box-shadow: 2px 2px 22px -3px rgba(0, 0, 0, 0.75);
 }
 
-
-
 .f-socials i:hover {
   color: var(--to-white-900);
   background-color: var(--to-purple);
 }
 
 .currentYear {
-  color: var(--to-purple) ;
+  color: var(--to-purple);
   font-weight: bold;
 }
 
 .footer h5 {
   margin-top: 30px;
   color: var(--to-white);
+}
+
+/* blog */
+.hero-content{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 70vh;
+}
+.greetings{
+  display: flex;
+  justify-content: center;
+}
+.hero-content .greetings p {
+  color: var(--to-white);
+  padding: 12px;
+  font-size: 15px;
+  width: fit-content;
+  font-weight: 700;
+  border: 4px solid transparent;
+  border-radius: 50px;
+  background-image:
+    linear-gradient(var(--to-black), var(--to-black)),
+    var(--gradient-bg);
+  background-size:
+    100% 100%,
+    300% 300%;
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+
+  animation: moveGradient 4s ease infinite;
+}
+
+@keyframes moveGradient {
+  0% {
+    background-position:
+      0% 0%,
+      0% 50%;
+  }
+  50% {
+    background-position:
+      0% 0%,
+      100% 50%;
+  }
+  100% {
+    background-position:
+      0% 0%,
+      0% 50%;
+  }
+}
+
+.hero-content h1{
+  color: var(--to-white);
+  opacity: .7;
+  font-weight: 600;
+  font-size: 3rem;
+  text-align: center;
+}
+.hero-content p{
+  font-size: 23px;
+  color: var(--to-light-grey);
+  text-align: center;
 }
