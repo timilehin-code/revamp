@@ -112,8 +112,6 @@
     font-size: 12px;
   }
 
-  
-
   .f-socials i {
     padding: 8px;
   }
@@ -133,6 +131,13 @@
 
   .hero-content p {
     font-size: 14px;
+  }
+
+  .post-cards {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
 }
 
@@ -240,5 +245,11 @@
 
   .hero-content p {
     font-size: 14px;
+  }
+
+  .post-cards {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
 }
