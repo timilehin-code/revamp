@@ -334,38 +334,67 @@ getCurrentlyPlaying()
     console.error("❌ Error occurred:", err);
   });
 
+function formatTime(ms) {
+  const totalSeconds = Math.floor(ms / 1000);
+  const minutes = Math.floor(totalSeconds / 60);
+  const seconds = totalSeconds % 60;
+  return `${minutes}:${seconds.toString().padStart(2, "0")}`;
+}
+
 async function updateNowPlaying() {
-  const container = document.getElementById("spotify-now-playing");
+  const container = document.getElementById("spotify-widget");
   if (!container) return;
 
   const data = await getCurrentlyPlaying();
 
-  if (data && data.item) {
-    const song = data.item.name;
-    const artists = data.item.artists.map((a) => a.name).join(", ");
-    const image = data.item.album.images[0]?.url || "";
-    const isPlaying = data.is_playing;
-
+  if (!data || !data.item) {
     container.innerHTML = `
-      <img src="${image}" alt="Album art">
-      <div class="spotify-info">
-        <div class="spotify-song">${song}</div>
-        <div class="spotify-artist">${artists}</div>
-        <div class="spotify-status">${isPlaying ? "▶ Now Playing" : "⏸ Paused"}</div>
+      <div class="spotify-top">
+        <div class="spotify-info">
+          <div class="spotify-title">Not playing</div>
+          <div class="spotify-artists">Spotify</div>
+        </div>
       </div>
     `;
-  } else {
-    container.innerHTML = `
-      <div class="spotify-info">
-        <div class="spotify-song">Not playing</div>
-        <div class="spotify-artist">Spotify</div>
-      </div>
-    `;
+    return;
   }
+
+  const song = data.item.name;
+  const artists = data.item.artists.map(a => a.name).join(", ");
+  const image = data.item.album.images[0]?.url || "";
+  const isPlaying = data.is_playing;
+  const progress = data.progress_ms || 0;
+  const duration = data.item.duration_ms || 0;
+  const progressPercent = duration > 0 ? (progress / duration) * 100 : 0;
+
+  container.innerHTML = `
+    <div class="spotify-top">
+      <img class="spotify-art" src="${image}" alt="Album art">
+      <div class="spotify-info">
+        <div class="spotify-title-row">
+          <div class="spotify-title">${song}</div>
+          ${isPlaying ? `
+            <div class="spotify-equalizer">
+              <span></span><span></span><span></span><span></span>
+            </div>
+          ` : ""}
+        </div>
+        <div class="spotify-artists">${artists}</div>
+      </div>
+    </div>
+
+    <div class="spotify-progress-container">
+      <div class="spotify-progress-bar">
+        <div class="spotify-progress-fill" style="width: ${progressPercent}%"></div>
+      </div>
+      <div class="spotify-times">
+        <span>${formatTime(progress)}</span>
+        <span>${formatTime(duration)}</span>
+      </div>
+    </div>
+  `;
 }
 
-// Run once when page loads
+// Initial load + auto refresh
 updateNowPlaying();
-
-// Optional: auto-refresh every 30 seconds
-setInterval(updateNowPlaying, 30000);
+setInterval(updateNowPlaying, 15000); // every 15 seconds
