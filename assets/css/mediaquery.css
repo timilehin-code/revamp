@@ -27,10 +27,6 @@
     transition: color 0.5s ease;
   }
 
-  .toggler {
-    margin-top: 15px;
-  }
-
   .line,
   .socials,
   .home img {
