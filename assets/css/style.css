@@ -590,3 +590,134 @@ nav h5 {
   color: var(--to-light-grey);
   font-size: 15px;
 }
+
+.spotify-card {
+  width: 340px;
+  background: var(--to-white);
+  border-radius: 16px;
+  padding: 16px;
+  color: var(--to-black);
+  font-family: system-ui, -apple-system, sans-serif;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+  user-select: none;
+}
+
+.spotify-top {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 18px;
+}
+
+.spotify-art {
+  width: 64px !important;
+  height: 64px !important;
+  border-radius: 8px;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+.spotify-art img {
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+  object-fit: cover;
+}
+.spotify-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.spotify-title-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 4px;
+}
+
+.spotify-title {
+  font-size: 15px;
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.spotify-equalizer {
+  display: flex;
+  align-items: flex-end;
+  gap: 2px;
+  height: 14px;
+}
+
+.spotify-equalizer span {
+  width: 3px;
+  background: #1db954;
+  border-radius: 1px;
+  animation: equalize 1.2s ease-in-out infinite;
+}
+
+.spotify-equalizer span:nth-child(1) { height: 40%; animation-delay: 0s; }
+.spotify-equalizer span:nth-child(2) { height: 70%; animation-delay: 0.2s; }
+.spotify-equalizer span:nth-child(3) { height: 100%; animation-delay: 0.4s; }
+.spotify-equalizer span:nth-child(4) { height: 55%; animation-delay: 0.1s; }
+
+@keyframes equalize {
+  0%, 100% { height: 30%; }
+  50% { height: 100%; }
+}
+
+.spotify-artists {
+  font-size: 13px;
+  color: #b3b3b3;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.spotify-progress-container {
+  margin-bottom: 14px;
+}
+
+.spotify-progress-bar {
+  height: 4px;
+  background: var(--to-grey);
+  border-radius: 2px;
+  overflow: hidden;
+  margin-bottom: 6px;
+  cursor: pointer;
+}
+
+.spotify-progress-fill {
+  height: 100%;
+  background: var(--to-black);
+  border-radius: 2px;
+  width: 0%;
+  transition: width 0.3s linear;
+}
+
+.spotify-times {
+  display: flex;
+  justify-content: space-between;
+  font-size: 11px;
+  color: #b3b3b3;
+}
+
+.spotify-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 28px;
+}
+
+.spotify-controls button {
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
