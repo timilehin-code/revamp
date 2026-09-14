@@ -49,7 +49,9 @@ html {
     rgba(249, 248, 113, 1) 98%
   );
 }
-
+body::-webkit-scrollbar {
+  display: none;
+}
 body {
   background-color: var(--to-black);
   font-family: Arial, Helvetica, sans-serif;
@@ -72,7 +74,7 @@ body {
 
 nav {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
   padding-top: 20px;
   padding-bottom: 20px;
@@ -92,7 +94,10 @@ nav h5 {
 
 .nav-links {
   background-color: var(--to-black-grey-faded);
-  /* opacity: 0.5; */
+  backdrop-filter: blur(5px);
+  position: fixed;
+  margin-left: 28%;
+  z-index: 20;
   border: 1px solid var(--to-grey);
   padding: 28px 45px;
   display: flex;
@@ -105,7 +110,6 @@ nav h5 {
 .links {
   display: flex;
   gap: 25px;
-  position: sticky;
 }
 .links a {
   opacity: 1 !important;
@@ -119,10 +123,6 @@ nav h5 {
 .links a:hover {
   color: var(--to-purple);
   border-bottom: 2px solid var(--to-purple);
-}
-
-.toggler {
-  /* margin-top: 30px; */
 }
 
 .toggler i {
@@ -597,7 +597,10 @@ nav h5 {
   border-radius: 16px;
   padding: 16px;
   color: var(--to-black);
-  font-family: system-ui, -apple-system, sans-serif;
+  font-family:
+    system-ui,
+    -apple-system,
+    sans-serif;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
   user-select: none;
 }
@@ -656,14 +659,31 @@ nav h5 {
   animation: equalize 1.2s ease-in-out infinite;
 }
 
-.spotify-equalizer span:nth-child(1) { height: 40%; animation-delay: 0s; }
-.spotify-equalizer span:nth-child(2) { height: 70%; animation-delay: 0.2s; }
-.spotify-equalizer span:nth-child(3) { height: 100%; animation-delay: 0.4s; }
-.spotify-equalizer span:nth-child(4) { height: 55%; animation-delay: 0.1s; }
+.spotify-equalizer span:nth-child(1) {
+  height: 40%;
+  animation-delay: 0s;
+}
+.spotify-equalizer span:nth-child(2) {
+  height: 70%;
+  animation-delay: 0.2s;
+}
+.spotify-equalizer span:nth-child(3) {
+  height: 100%;
+  animation-delay: 0.4s;
+}
+.spotify-equalizer span:nth-child(4) {
+  height: 55%;
+  animation-delay: 0.1s;
+}
 
 @keyframes equalize {
-  0%, 100% { height: 30%; }
-  50% { height: 100%; }
+  0%,
+  100% {
+    height: 30%;
+  }
+  50% {
+    height: 100%;
+  }
 }
 
 .spotify-artists {
@@ -719,5 +739,3 @@ nav h5 {
   align-items: center;
   justify-content: center;
 }
-
-
