@@ -140,6 +140,25 @@
   .spotify-art img {
     display: block !important;
   }
+  .breadCrumbs {
+    margin-left: 40px;
+  }
+  .category {
+    margin-left: 40px;
+  }
+
+  .title h2 {
+    font-size: 20px;
+  }
+
+  .blog-note {
+    width: 90%;
+  }
+
+  .blog-note p {
+    font-size: 18px;
+    text-align: justify;
+  }
 }
 
 @media (min-width: 450px) and (max-width: 780px) {
@@ -261,5 +280,25 @@
 
   .spotify-art img {
     display: block !important;
+  }
+
+  .breadCrumbs {
+    margin-left: 40px;
+  }
+  .category {
+    margin-left: 40px;
+  }
+
+  .title h2 {
+    font-size: 20px;
+  }
+
+  .blog-note {
+    width: 90%;
+  }
+
+  .blog-note p {
+    font-size: 18px;
+    text-align: justify;
   }
 }

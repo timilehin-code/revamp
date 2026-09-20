@@ -808,6 +808,7 @@ hr {
 .blog-note p {
   color: var(--to-white);
   font-size: 20px;
+  text-align: justify;
 }
 
 .share {
@@ -831,4 +832,8 @@ hr {
 
 .links a {
   text-decoration: none;
+}
+
+.related-post{
+  color: var(--to-white);
 }
