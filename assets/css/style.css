@@ -49,6 +49,9 @@ html {
     rgba(249, 248, 113, 1) 98%
   );
 }
+a {
+  text-decoration: none;
+}
 body::-webkit-scrollbar {
   display: none;
 }
@@ -738,4 +741,94 @@ nav h5 {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+/* blog post  */
+.breadCrumbs {
+  display: flex;
+  gap: 15px;
+  color: var(--to-purple-transparent);
+  align-items: center;
+  font-size: 20px;
+}
+
+.breadCrumbs a {
+  text-decoration: none;
+  color: var(--to-white);
+  font-size: 20px;
+  transition: 0.5s ease;
+}
+
+.breadCrumbs a:hover {
+  color: #49378f;
+}
+
+.blog-image {
+  text-align: center;
+  padding: 20px;
+}
+
+.category {
+  color: var(--to-purple);
+  font-weight: 800;
+  font-size: 15px;
+}
+
+.title h2 {
+  text-align: center;
+  justify-content: center;
+  color: var(--to-white);
+  font-weight: 700;
+}
+.hashtag {
+  padding: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  line-height: .1;
+  justify-content: center;
+  gap: 15px;
+  color: var(--to-light-grey);
+}
+.hashtag p {
+  letter-spacing: 3px;
+}
+
+.blog-image img {
+  width: 80%;
+  height: auto;
+  object-fit: contain;
+}
+.blog-note {
+  width: 80%;
+  margin: auto;
+}
+hr {
+  background-color: var(--to-purple);
+}
+.blog-note p {
+  color: var(--to-white);
+  font-size: 20px;
+}
+
+.share {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.links p {
+  color: var(--to-white);
+  font-weight: 500;
+}
+
+.share a button {
+  color: var(--to-white-900);
+  border: none;
+  padding: 10px 20px;
+  border-radius: 10px;
+  background: var(--to-purple);
+}
+
+.links a {
+  text-decoration: none;
 }
