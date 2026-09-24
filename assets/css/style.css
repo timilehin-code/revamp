@@ -784,7 +784,7 @@ nav h5 {
   padding: 10px;
   display: flex;
   flex-wrap: wrap;
-  line-height: .1;
+  line-height: 0.1;
   justify-content: center;
   gap: 15px;
   color: var(--to-light-grey);
@@ -834,6 +834,61 @@ hr {
   text-decoration: none;
 }
 
-.related-post{
+.related-post {
   color: var(--to-white);
+}
+
+/* login page */
+.login-form {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.wrapper {
+  max-width: 420px;
+  width: 100%;
+  background-color: var(--to-black-grey-500);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  padding: 15px;
+  border-radius: 10px;
+}
+.form-header {
+  width: 100%;
+  background: var(--to-black-grey);
+  overflow: hidden;
+  padding: 2rem 2rem 1.5rem;
+  color: var(--to-white);
+}
+
+.wrapper form input,
+button {
+  width: 100%;
+  margin-top: 10px;
+}
+
+.wrapper form input{
+  border-radius: 5px;
+  border: 2px solid var(--to-purple-transparent);
+  padding: 10px;
+  background: var(--to-black-grey-500);
+  color: var(--to-white);
+  outline: none;
+}
+
+.wrapper form button{
+  color: var(--to-white);
+  border-radius: 20px;
+  padding: 10px;
+  border: none;
+  background-color: var(--to-purple);
+  transition: transform .2s ease;
+  margin-top: 40px;
+}
+
+.wrapper form button:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+
 }
