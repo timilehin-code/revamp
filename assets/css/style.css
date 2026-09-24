@@ -884,7 +884,7 @@ button {
   border: none;
   background-color: var(--to-purple);
   transition: transform .2s ease;
-  margin-top: 40px;
+  margin-top: 20px;
 }
 
 .wrapper form button:hover{
