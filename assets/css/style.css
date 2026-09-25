@@ -49,6 +49,35 @@ html {
     rgba(249, 248, 113, 1) 98%
   );
 }
+/* Native View Transitions (Chromium browsers) */
+@view-transition {
+  navigation: auto;
+}
+
+::view-transition-group(root) {
+  animation-duration: 1s;
+}
+
+::view-transition-old(root) {
+  animation-name: pages-slide-out;
+}
+
+::view-transition-new(root) {
+  animation-name: pages-slide-in;
+}
+
+@keyframes pages-slide-out {
+  to {
+    translate: -100vw;
+  }
+}
+
+@keyframes pages-slide-in {
+  from {
+    translate: 100vw;
+  }
+}
+
 a {
   text-decoration: none;
 }
@@ -868,7 +897,7 @@ button {
   margin-top: 10px;
 }
 
-.wrapper form input{
+.wrapper form input {
   border-radius: 5px;
   border: 2px solid var(--to-purple-transparent);
   padding: 10px;
@@ -877,18 +906,30 @@ button {
   outline: none;
 }
 
-.wrapper form button{
+.wrapper form button {
   color: var(--to-white);
   border-radius: 20px;
   padding: 10px;
   border: none;
   background-color: var(--to-purple);
-  transition: transform .2s ease;
+  transition: transform 0.2s ease;
   margin-top: 20px;
 }
 
-.wrapper form button:hover{
+.wrapper form button:hover {
   transform: translateY(-2px);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
 
+.dashboard {
+  display: flex;
+}
+.side-bar {
+  background: var(--to-black-grey-500);
+  height: 100vh;
+  padding: 20px;
+  width: 20%;
+  box-shadow: 12px -1px 5px 0px rgba(0, 0, 0, 0.2);
+  -webkit-box-shadow: 12px -1px 5px 0px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 12px -1px 5px 0px rgba(0, 0, 0, 0.2);
 }
