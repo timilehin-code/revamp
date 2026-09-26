@@ -1,6 +1,6 @@
 <?php
-include '../includes/header.php';
-include '../includes/navigation.php';
+include 'includes/header.php';
+include 'includes/navigation.php';
 ?>
 <!-- hero section -->
 <section class="hero-section">
@@ -23,7 +23,7 @@ include '../includes/navigation.php';
   <div class="container">
     <div class="post-cards">
       <div class="post-card">
-        <a href="blog-post.php">
+        <a href="/blog/">
           <div class="post-card-img">
             <img
               src="https://placehold.co/600x400?text=Hello+World"
@@ -153,6 +153,6 @@ include '../includes/navigation.php';
 </section>
 
 <?php
-include '../includes/footer.php';
-include '../includes/script.php';
+include 'includes/footer.php';
+include 'includes/script.php';
 ?>

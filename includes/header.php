@@ -21,11 +21,11 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- font awesome css -->
     <!-- favicon icon -->
-    <link rel="shortcut icon" href="assets/img/profile.png" type="image/x-icon">
+    <link rel="shortcut icon" href="views/assets/img/profile.png" type="image/x-icon">
     <!-- favicon ends -->
     <!-- custom css -->
-    <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="stylesheet" href="assets/css/mediaquery.css">
+    <link rel="stylesheet" href="views/assets/css/style.css">
+    <link rel="stylesheet" href="views/assets/css/mediaquery.css">
     <!-- custom css ends  -->
     <title>Home</title>
 </head>

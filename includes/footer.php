@@ -2,9 +2,10 @@
 <div class="container">
     <div class="footer mt-5">
         <ul class="d-flex list-unstyled gap-5">
-            <li><a href="">Home</a></li>
+            <li><a href="home">Home</a></li>
             <li><a href="">Project</a></li>
             <li><a href="">About</a></li>
+            <li><a href="Blog">Blog</a></li>
         </ul>
         <div class="d-flex f-socials">
             <i class="fa-brands fa-facebook mx-3"></i>

@@ -1,6 +1,6 @@
 <?php
-include '../includes/header.php';
-include '../includes/navigation.php';
+include 'includes/header.php';
+include 'includes/navigation.php';
 ?>
 <div class="grain-overlay"></div>
 
@@ -16,7 +16,7 @@ include '../includes/navigation.php';
     <div class="line"></div>
 
     <div class="note mx-5">
-        <img src="assets/img/profile.png" alt="" class="mobile-profile">
+        <img src="views/assets/img/profile.png" alt="" class="mobile-profile">
         <h2>Welcome,</h2>
         <h1>I'm Oluwatimilehin Tawose</h1>
         <h5>A Software Developer</h5>
@@ -39,7 +39,7 @@ include '../includes/navigation.php';
             <i class="fa-solid fa-envelope"></i>
         </div>
     </div>
-    <img src="assets/img/profile.png" alt="">
+    <img src="views/assets/img/profile.png" alt="">
 </div>
 <div class="d-flex mt-5 justify-content-center">
     <div id="spotify-widget" class="spotify-card mt-5">
@@ -53,32 +53,32 @@ include '../includes/navigation.php';
         <h4 class=" text-center">Languages and stacks i use.</h4>
         <div class="overflow-hidden d-flex stacks-logo  m-auto align-items-center justify-content-around">
             <div class="d-flex logo">
-                <img src="assets/img/php_logo.png" alt="">
-                <img src="assets/img/mysql_logo.png" alt="">
-                <img src="assets/img/javascript_logo.png" alt="">
-                <img src="assets/img/html_logo.png" alt="">
-                <img src="assets/img/css_logo.png" alt="">
-                <img src="assets/img/github_logo.png" alt="">
-                <img src="assets/img/git_logo.png" alt="">
-                <img src="assets/img/bootstrap_logo.png" alt="">
-                <img src="assets/img/tailwind_logo.png" alt="">
-                <img src="assets/img/jquery_logo.png" alt="">
-                <img src="assets/img/wordpress_logo.png" alt="">
-                <img src="assets/img/python_logo.png" alt="">
+                <img src="views/assets/img/php_logo.png" alt="">
+                <img src="views/assets/img/mysql_logo.png" alt="">
+                <img src="views/assets/img/javascript_logo.png" alt="">
+                <img src="views/assets/img/html_logo.png" alt="">
+                <img src="views/assets/img/css_logo.png" alt="">
+                <img src="views/assets/img/github_logo.png" alt="">
+                <img src="views/assets/img/git_logo.png" alt="">
+                <img src="views/assets/img/bootstrap_logo.png" alt="">
+                <img src="views/assets/img/tailwind_logo.png" alt="">
+                <img src="views/assets/img/jquery_logo.png" alt="">
+                <img src="views/assets/img/wordpress_logo.png" alt="">
+                <img src="views/assets/img/python_logo.png" alt="">
             </div>
             <div class="d-flex logo">
-                <img src="assets/img/php_logo.png" alt="">
-                <img src="assets/img/mysql_logo.png" alt="">
-                <img src="assets/img/javascript_logo.png" alt="">
-                <img src="assets/img/html_logo.png" alt="">
-                <img src="assets/img/css_logo.png" alt="">
-                <img src="assets/img/github_logo.png" alt="">
-                <img src="assets/img/git_logo.png" alt="">
-                <img src="assets/img/bootstrap_logo.png" alt="">
-                <img src="assets/img/tailwind_logo.png" alt="">
-                <img src="assets/img/jquery_logo.png" alt="">
-                <img src="assets/img/wordpress_logo.png" alt="">
-                <img src="assets/img/python_logo.png" alt="">
+                <img src="views/assets/img/php_logo.png" alt="">
+                <img src="views/assets/img/mysql_logo.png" alt="">
+                <img src="views/assets/img/javascript_logo.png" alt="">
+                <img src="views/assets/img/html_logo.png" alt="">
+                <img src="views/assets/img/css_logo.png" alt="">
+                <img src="views/assets/img/github_logo.png" alt="">
+                <img src="views/assets/img/git_logo.png" alt="">
+                <img src="views/assets/img/bootstrap_logo.png" alt="">
+                <img src="views/assets/img/tailwind_logo.png" alt="">
+                <img src="views/assets/img/jquery_logo.png" alt="">
+                <img src="views/assets/img/wordpress_logo.png" alt="">
+                <img src="views/assets/img/python_logo.png" alt="">
             </div>
         </div>
     </div>
@@ -93,7 +93,7 @@ include '../includes/navigation.php';
             <a href="">
                 <div class="work-card">
                     <div class="work-img">
-                        <img src="assets/img/portfolio.jpg" alt="">
+                        <img src="views/assets/img/portfolio.jpg" alt="">
                     </div>
                     <h4 class=" mt-2">Portfolio</h4>
                     <p class=" text-justify mt-3">Lorem ipsum dolor sit amet consectetur adipisicing elit.
@@ -109,7 +109,7 @@ include '../includes/navigation.php';
             <a href="">
                 <div class="work-card">
                     <div class="work-img">
-                        <img src="assets/img/med_record_1.jpg" alt="">
+                        <img src="views/assets/img/med_record_1.jpg" alt="">
                     </div>
                     <h4 class=" mt-2">Portfolio</h4>
                     <p class=" text-justify mt-3">Lorem ipsum dolor sit amet consectetur adipisicing elit.
@@ -125,7 +125,7 @@ include '../includes/navigation.php';
             <a href="">
                 <div class="work-card">
                     <div class="work-img">
-                        <img src="assets/img/portfolio.jpg" alt="">
+                        <img src="views/assets/img/portfolio.jpg" alt="">
                     </div>
                     <h4 class="mt-2">Portfolio</h4>
                     <p class="text-justify mt-3">Lorem ipsum dolor sit amet consectetur adipisicing elit.
@@ -141,7 +141,7 @@ include '../includes/navigation.php';
             <a href="">
                 <div class="work-card">
                     <div class="work-img">
-                        <img src="assets/img/portfolio.jpg" alt="">
+                        <img src="views/assets/img/portfolio.jpg" alt="">
                     </div>
                     <h4 class=" mt-2">Portfolio</h4>
                     <p class=" text-justify mt-3">Lorem ipsum dolor sit amet consectetur adipisicing elit.
@@ -157,7 +157,7 @@ include '../includes/navigation.php';
             <a href="">
                 <div class="work-card">
                     <div class="work-img">
-                        <img src="assets/img/med_record_1.jpg" alt="">
+                        <img src="views/assets/img/med_record_1.jpg" alt="">
                     </div>
                     <h4 class=" mt-2">Portfolio</h4>
                     <p class=" text-justify mt-3">Lorem ipsum dolor sit amet consectetur adipisicing elit.
@@ -173,7 +173,7 @@ include '../includes/navigation.php';
             <a href="">
                 <div class="work-card">
                     <div class="work-img">
-                        <img src="assets/img/portfolio.jpg" alt="">
+                        <img src="views/assets/img/portfolio.jpg" alt="">
                     </div>
                     <h4 class=" mt-2">Portfolio</h4>
                     <p class=" text-justify mt-3">Lorem ipsum dolor sit amet consectetur adipisicing elit.
@@ -246,6 +246,6 @@ include '../includes/navigation.php';
 <!-- contact me ends -->
 
 <?php
-include '../includes/footer.php';
-include '../includes/script.php';
+include 'includes/footer.php';
+include 'includes/script.php';
 ?>
