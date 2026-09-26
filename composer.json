@@ -1,0 +1,10 @@
+{
+  "name": "oluwatimilehin/app",
+  "autoload": {
+    "psr-4": {
+      "models\\": "models/"
+    }
+  },
+  "require": {}
+}
+
