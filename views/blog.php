@@ -23,7 +23,7 @@ include '../includes/navigation.php';
   <div class="container">
     <div class="post-cards">
       <div class="post-card">
-        <a href="blog-post.html">
+        <a href="blog-post.php">
           <div class="post-card-img">
             <img
               src="https://placehold.co/600x400?text=Hello+World"
@@ -44,7 +44,7 @@ include '../includes/navigation.php';
         </a>
       </div>
       <div class="post-card">
-        <a href="blog-post.html">
+        <a href="blog-post.php">
           <div class="post-card-img">
             <img
               src="https://placehold.co/600x400?text=Hello+World"
@@ -65,7 +65,7 @@ include '../includes/navigation.php';
         </a>
       </div>
       <div class="post-card">
-        <a href="blog-post.html">
+        <a href="blog-post.php">
           <div class="post-card-img">
             <img
               src="https://placehold.co/600x400?text=Hello+World"
@@ -86,7 +86,7 @@ include '../includes/navigation.php';
         </a>
       </div>
       <div class="post-card">
-        <a href="blog-post.html">
+        <a href="blog-post.php">
           <div class="post-card-img">
             <img
               src="https://placehold.co/600x400?text=Hello+World"
@@ -107,7 +107,7 @@ include '../includes/navigation.php';
         </a>
       </div>
       <div class="post-card">
-        <a href="blog-post.html">
+        <a href="blog-post.php">
           <div class="post-card-img">
             <img
               src="https://placehold.co/600x400?text=Hello+World"
@@ -128,7 +128,7 @@ include '../includes/navigation.php';
         </a>
       </div>
       <div class="post-card">
-        <a href="blog-post.html">
+        <a href="blog-post.php">
           <div class="post-card-img">
             <img
               src="https://placehold.co/600x400?text=Hello+World"

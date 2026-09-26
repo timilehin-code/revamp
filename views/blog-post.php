@@ -5,9 +5,9 @@ include '../includes/navigation.php';
 <main class="blog-post">
   <div class="container">
     <div class="breadCrumbs">
-      <a href="index.html">Home</a>
+      <a href="index.php">Home</a>
       <span>//</span>
-      <a href="blog.html">Blog</a>
+      <a href="blog.php">Blog</a>
     </div>
     <div class="category">
       <p>Technology</p>
@@ -67,7 +67,7 @@ include '../includes/navigation.php';
         <a href=""> <i class="fa-brands fa-x-twitter"></i></a>
         <a href=""><i class="fa-brands fa-linkedin"></i></a>
       </div>
-      <a href="blog.html">
+      <a href="blog.php">
         <button>Back to blog</button>
       </a>
     </div>
