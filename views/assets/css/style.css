@@ -446,7 +446,7 @@ nav h5 {
   padding-bottom: 15px;
   border: none;
   border-radius: 5px;
-  width: 30%;
+  width: 45%;
 }
 
 .contact form a:hover {
@@ -1268,3 +1268,4 @@ button {
     flex-direction: column;
   }
 }
+
