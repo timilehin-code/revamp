@@ -1,7 +1,7 @@
 <?php
-require_once __DIR__ . '/vendor/autoload.php';
+require_once __DIR__ . '/../vendor/autoload.php';
 
-use Models\Conn\Conn;
+use models\Config\Conn;
 
 function connection()
 {
@@ -10,4 +10,4 @@ function connection()
         return   $conn->getConnect();
     }
 }
-connection();
+

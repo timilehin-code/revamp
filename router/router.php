@@ -29,12 +29,17 @@ $router->get('/blog/{slug}', function ($slug) {
 });
 
 $router->get('/Admin', function () {
-    require_once __DIR__ . '/../admin/index.php';  
+    require_once __DIR__ . '/../admin/index.php';
 });
 // 404 Handler
 $router->set404(function () {
     header('HTTP/1.1 404 Not Found');
     require_once __DIR__ . '/../views/404.php';
+});
+
+
+$router->get('/conn', function () {
+    require_once __DIR__ . '/../config/conn.php';
 });
 
 // Execute the router

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Models\Conn;
+namespace Models\Config;
 
 use PDO;
 use PDOException;
