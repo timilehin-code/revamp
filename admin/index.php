@@ -70,13 +70,14 @@ include '../includes/header.php';
 
     <!-- HOME VIEW -->
     <section class="view active" id="view-home">
-      <div class="panel">
+      <form action="" method="POST" class="panel">
         <div class="field">
           <label for="h-title">Hero title</label>
           <input
             type="text"
             id="h-title"
-            placeholder="e.g. Hi, I'm Ada — I build things." />
+            
+            placeholder="e.g. Hi, I'm Timi. I build things." />
         </div>
         <div class="field">
           <label for="h-subtitle">Hero subtitle</label>
@@ -103,7 +104,7 @@ include '../includes/header.php';
             Save home page
           </button>
         </div>
-      </div>
+      </form>
     </section>
 
     <!-- POSTS VIEW -->
@@ -121,6 +122,7 @@ include '../includes/header.php';
           <input
             type="text"
             id="p-title"
+            name="title"
             placeholder="e.g. Redesigning my portfolio in a weekend" />
         </div>
         <div class="field">
@@ -129,6 +131,7 @@ include '../includes/header.php';
             type="text"
             id="p-slug"
             class="slug"
+            type="slug"
             placeholder="redesigning-my-portfolio" />
         </div>
         <div class="field">
@@ -136,25 +139,27 @@ include '../includes/header.php';
           <input
             type="text"
             id="p-excerpt"
+            type="excerpt"
             placeholder="One line summary for the posts list" />
         </div>
         <div class="field">
           <label for="p-content">Content</label>
           <textarea
             id="p-content"
+            name="content"
             style="min-height: 160px"
             placeholder="Write your post..."></textarea>
         </div>
         <div class="field">
           <label for="p-tags">Tags (comma separated)</label>
-          <input type="text" id="p-tags" placeholder="design, process" />
+          <input type="text" name="tags" id="p-tags" placeholder="design, process" />
         </div>
-        <div class="checkbox-row">
+        <!-- <div class="checkbox-row">
           <input type="checkbox" id="p-published" />
           <label for="p-published" style="margin: 0">Publish immediately</label>
-        </div>
+        </div> -->
         <div class="form-actions">
-          <button class="btn btn-primary" id="save-post">Save post</button>
+          <button class="btn btn-primary" type="submit" id="save-post">Save post</button>
           <button
             class="btn btn-ghost"
             id="cancel-edit"
