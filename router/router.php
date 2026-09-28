@@ -28,6 +28,9 @@ $router->get('/blog/{slug}', function ($slug) {
     require_once __DIR__ . '/../views/blog-post.php';
 });
 
+$router->get('/Admin', function () {
+    require_once __DIR__ . '/../admin/index.php';  
+});
 // 404 Handler
 $router->set404(function () {
     header('HTTP/1.1 404 Not Found');

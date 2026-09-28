@@ -26,6 +26,8 @@
     <!-- custom css -->
     <link rel="stylesheet" href="views/assets/css/style.css">
     <link rel="stylesheet" href="views/assets/css/mediaquery.css">
+    <link rel="stylesheet" href="../views/assets/css/style.css">
+    <link rel="stylesheet" href="../views/assets/css/mediaquery.css">
     <!-- custom css ends  -->
     <title>Home</title>
 </head>
