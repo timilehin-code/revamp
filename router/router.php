@@ -38,5 +38,9 @@ $router->set404(function () {
 });
 
 
+$router->get('/conn', function () {
+    require_once __DIR__ . '/../controllers/admin/createBlog.php';
+});
+
 // Execute the router
 $router->run();

@@ -16,10 +16,10 @@ class CreateBlog
 
     public string $content;
 
-    public array $tags;
+    public string $tags;
 
     public pdo $conn;
-    public function __construct(string $title, string $slug, string $excerpt, string $content, array $tags, PDO $conn)
+    public function __construct(string $title, string $slug, string $excerpt, string $content, string $tags, PDO $conn)
     {
         $this->title = $title;
         $this->slug = $slug;

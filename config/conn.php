@@ -11,3 +11,4 @@ function connection()
     }
 }
 
+$connect = connection();
