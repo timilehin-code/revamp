@@ -76,7 +76,7 @@ include '../includes/header.php';
           <input
             type="text"
             id="h-title"
-            
+
             placeholder="e.g. Hi, I'm Timi. I build things." />
         </div>
         <div class="field">
@@ -116,7 +116,7 @@ include '../includes/header.php';
 
     <!-- NEW / EDIT POST VIEW -->
     <section class="view" id="view-new">
-      <div class="panel">
+      <form action="/revamp/admin/create-blog" method="POST" class="panel">
         <div class="field">
           <label for="p-title">Post title</label>
           <input
@@ -131,7 +131,7 @@ include '../includes/header.php';
             type="text"
             id="p-slug"
             class="slug"
-            type="slug"
+            name="slug"
             placeholder="redesigning-my-portfolio" />
         </div>
         <div class="field">
@@ -139,7 +139,7 @@ include '../includes/header.php';
           <input
             type="text"
             id="p-excerpt"
-            type="excerpt"
+            name="excerpt"
             placeholder="One line summary for the posts list" />
         </div>
         <div class="field">
@@ -154,20 +154,10 @@ include '../includes/header.php';
           <label for="p-tags">Tags (comma separated)</label>
           <input type="text" name="tags" id="p-tags" placeholder="design, process" />
         </div>
-        <!-- <div class="checkbox-row">
-          <input type="checkbox" id="p-published" />
-          <label for="p-published" style="margin: 0">Publish immediately</label>
-        </div> -->
         <div class="form-actions">
           <button class="btn btn-primary" type="submit" id="save-post">Save post</button>
-          <button
-            class="btn btn-ghost"
-            id="cancel-edit"
-            style="display: none">
-            Cancel edit
-          </button>
         </div>
-      </div>
+      </form>
     </section>
   </main>
 </div>
