@@ -154,6 +154,10 @@ include '../includes/header.php';
           <label for="p-tags">Tags (comma separated)</label>
           <input type="text" name="tags" id="p-tags" placeholder="design, process" />
         </div>
+        <div class="field">
+          <label for="cover_image">Cover Image</label>
+          <input type="file" name="cover_image" id="cover_image" placeholder="design, process"  />
+        </div>
         <div class="form-actions">
           <button class="btn btn-primary" type="submit" id="save-post">Save post</button>
         </div>
