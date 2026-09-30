@@ -40,7 +40,7 @@ class CreateBlog
     {
         try {
             $sql = "INSERT INTO blog (title, slug, excerpt, content, tags,cover_image, created_at, updated_at, published_at) 
-                    VALUES (:title, :slug, :excerpt, :content, :tags,:cover_image NOW(), NOW(), NOW())";
+                    VALUES (:title, :slug, :excerpt, :content, :tags,:cover_image,NOW(), NOW(), NOW())";
 
             $stmt = $this->conn->prepare($sql);
 

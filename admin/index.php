@@ -116,7 +116,7 @@ include '../includes/header.php';
 
     <!-- NEW / EDIT POST VIEW -->
     <section class="view" id="view-new">
-      <form action="/revamp/admin/create-blog" method="POST" class="panel">
+      <form action="/revamp/admin/create-blog" method="POST" class="panel" enctype="multipart/form-data">
         <div class="field">
           <label for="p-title">Post title</label>
           <input
