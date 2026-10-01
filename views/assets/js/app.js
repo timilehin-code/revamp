@@ -15,17 +15,18 @@ const disableLightMode = () => {
 if (lightMode === "enabled") {
   enableLightMode();
 }
-
-modeToggler.addEventListener("click", () => {
-  lightMode = localStorage.getItem("lightmode");
-  if (lightMode !== "enabled") {
-    enableLightMode();
-    console.log(lightMode);
-  } else if (lightMode == "enabled") {
-    disableLightMode();
-    console.log(lightMode);
-  }
-});
+if (modeToggler) {
+  modeToggler.addEventListener("click", () => {
+    lightMode = localStorage.getItem("lightmode");
+    if (lightMode !== "enabled") {
+      enableLightMode();
+      console.log(lightMode);
+    } else if (lightMode == "enabled") {
+      disableLightMode();
+      console.log(lightMode);
+    }
+  });
+}
 
 // email js
 
@@ -135,8 +136,11 @@ function toRoman(year) {
 }
 const currentYear = new Date().getFullYear();
 // Set the current year in the footer
-document.getElementById("currentYear").textContent = toRoman(currentYear);
+const year = document.getElementById("currentYear");
 
+if (year) {
+  year.textContent = toRoman(currentYear);
+}
 // spotify widget api
 // ========== CONFIG ==========
 const clientId = "e7619962a8fa47318570e814246e29f2"; // from Spotify dashboard
@@ -360,7 +364,7 @@ async function updateNowPlaying() {
   }
 
   const song = data.item.name;
-  const artists = data.item.artists.map(a => a.name).join(", ");
+  const artists = data.item.artists.map((a) => a.name).join(", ");
   const image = data.item.album.images[0]?.url || "";
   const isPlaying = data.is_playing;
   const progress = data.progress_ms || 0;
@@ -373,11 +377,15 @@ async function updateNowPlaying() {
       <div class="spotify-info">
         <div class="spotify-title-row">
           <div class="spotify-title">${song}</div>
-          ${isPlaying ? `
+          ${
+            isPlaying
+              ? `
             <div class="spotify-equalizer">
               <span></span><span></span><span></span><span></span>
             </div>
-          ` : ""}
+          `
+              : ""
+          }
         </div>
         <div class="spotify-artists">${artists}</div>
       </div>
@@ -394,11 +402,21 @@ async function updateNowPlaying() {
     </div>
   `;
 }
-
 // Initial load + auto refresh
 updateNowPlaying();
 setInterval(updateNowPlaying, 15000); // every 15 seconds
 
-
-
-
+const blogTitle = document.querySelector("#p-title");
+const blogSlug = document.querySelector("#p-slug");
+if (blogTitle && blogSlug) {
+  // const blogTitleValue = blogTitle.value;
+  blogTitle.addEventListener("input", () => {
+    let SlugValue = blogTitle.value;
+    let symbol = "-";
+    blogSlug.value = SlugValue.toLowerCase()
+      .trim()
+      .replace(/[^a-z0-9\s-]/g, "")
+      .replace(/\s+/g, symbol) 
+      .replace(/-+/g, symbol);
+  });
+}
