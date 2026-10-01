@@ -6,7 +6,9 @@ namespace Models\Views;
 
 use PDO;
 use PDOException;
-
+/**
+ * blog post class to show all blogs to all visitors
+ */
 class Blogs
 {
     private PDO $conn;
@@ -18,10 +20,11 @@ class Blogs
 
     /**
      * Fetch all blog posts from the database ordered by newest first.
+     *
      * 
      * @return array
      */
-    public function getAll(): array
+    public function getAllPosts(): array
     {
         try {
             $sql = "SELECT * FROM blog ORDER BY created_at DESC";
@@ -31,7 +34,7 @@ class Blogs
             return $stmt->fetchAll(PDO::FETCH_ASSOC);
         } catch (PDOException $e) {
             if (function_exists('logProjectError')) {
-                logProjectError("PDO Error in Blogs::getAll(): " . $e->getMessage());
+                logProjectError("PDO Error in Blogs::getAllPosts(): " . $e->getMessage());
             }
             return [];
         }

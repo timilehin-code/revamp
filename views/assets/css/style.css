@@ -1049,6 +1049,7 @@ button {
   margin-bottom: 0.4rem;
 }
 .field input[type="text"],
+.field select,
 .field input[type="url"],
 .field textarea,
 .field input[type="text"].slug {

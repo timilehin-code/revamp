@@ -13,6 +13,7 @@ class CreateBlog
     public string $slug;
     public string $excerpt;
     public string $content;
+    public string $category;
     public string $tags;
 
     public string $coverImage;
@@ -23,6 +24,7 @@ class CreateBlog
         string $slug,
         string $excerpt,
         string $content,
+        string $category,
         string $tags,
         string $coverImage,
         PDO $conn
@@ -31,6 +33,7 @@ class CreateBlog
         $this->slug = $slug;
         $this->excerpt = $excerpt;
         $this->content = $content;
+        $this->category = $category;
         $this->tags = $tags;
         $this->coverImage = $coverImage;
         $this->conn = $conn;
@@ -39,8 +42,8 @@ class CreateBlog
     public function create(): bool
     {
         try {
-            $sql = "INSERT INTO blog (title, slug, excerpt, content, tags,cover_image, created_at, updated_at, published_at) 
-                    VALUES (:title, :slug, :excerpt, :content, :tags,:cover_image,NOW(), NOW(), NOW())";
+            $sql = "INSERT INTO blog (title, slug, excerpt, content, category, tags,cover_image, created_at, updated_at, published_at) 
+                    VALUES (:title, :slug, :excerpt, :content, :category, :tags,:cover_image,NOW(), NOW(), NOW())";
 
             $stmt = $this->conn->prepare($sql);
 
@@ -49,6 +52,7 @@ class CreateBlog
                 ':slug'    => $this->slug,
                 ':excerpt' => $this->excerpt,
                 ':content' => $this->content,
+                ':category'=> $this->category,
                 ':tags'    => $this->tags,
                 ':cover_image' => $this->coverImage
             ]);
