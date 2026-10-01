@@ -79,6 +79,7 @@ html {
 }
 
 a {
+  color: var(--to-black);
   text-decoration: none;
 }
 body::-webkit-scrollbar {
