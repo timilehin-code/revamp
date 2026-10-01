@@ -1024,10 +1024,8 @@ button {
 }
 
 .view {
-  display: none;
-}
-.view.active {
-  display: block;
+  width: 100%;
+  padding: 2rem;
 }
 
 .panel {
@@ -1039,8 +1037,6 @@ button {
 .panel + .panel {
   margin-top: 1.25rem;
 }
-
-
 
 .field {
   margin-bottom: 1.1rem;
@@ -1268,4 +1264,3 @@ button {
     flex-direction: column;
   }
 }
-

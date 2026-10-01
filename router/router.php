@@ -8,16 +8,17 @@ $router = new Router();
 $router->get('/', function () {
     require_once __DIR__ . '/../views/index.php';
 });
-
+// 404 Handler
+$router->set404(function () {
+    header('HTTP/1.1 404 Not Found');
+    require_once __DIR__ . '/../views/404.php';
+});
 $router->get('/home', function () {
     require_once __DIR__ . '/../views/index.php';
 });
 
 $router->get('/blog', function () {
     require_once __DIR__ . '/../views/blog.php';
-});
-$router->get('/index', function () {
-    require_once __DIR__ . '/../views/index.php';
 });
 $router->get('/Blog', function () {
     require_once __DIR__ . '/../views/blog.php';
@@ -31,14 +32,16 @@ $router->get('/blog/{slug}', function ($slug) {
 $router->get('/Admin', function () {
     require_once __DIR__ . '/../admin/index.php';
 });
-// 404 Handler
-$router->set404(function () {
-    header('HTTP/1.1 404 Not Found');
-    require_once __DIR__ . '/../views/404.php';
+
+
+$router->get('/admin/create-blog', function () {
+    require_once __DIR__ . '/../admin/create-blog.php';
 });
 
-
-$router->post('/admin/create-blog', function () {
+$router->get('/admin/blogs/', function () {
+    require_once __DIR__ . '/../admin/blogs.php';
+});
+$router->post('/controllers/create-blog', function () {
     require_once __DIR__ . '/../controllers/admin/createBlog.php';
     createPost();
 });
