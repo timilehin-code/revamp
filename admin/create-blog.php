@@ -42,6 +42,16 @@ include 'includes/header.php';
                     placeholder="Write your post..."></textarea>
             </div>
             <div class="field">
+                <label for="category">category</label>
+                <select name="category" id="category">
+                    <option value="" disabled selected>--Select a category--</option>
+                    <option value="Software development">Software development</option>
+                    <option value="Finance">Finance</option>
+                    <option value="Life">Life</option>
+                    <option value="Technology">Technology</option>
+                </select>
+            </div>
+            <div class="field">
                 <label for="p-tags">Tags (comma separated)</label>
                 <input type="text" name="tags" id="p-tags" placeholder="design, process" />
             </div>

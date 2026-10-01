@@ -4,7 +4,6 @@ require_once __DIR__ . '/../../vendor/autoload.php';
 require_once __DIR__ . '/../../config/conn.php';
 
 use models\admin\CreateBlog;
-
 function createPost()
 {
     $connection = $GLOBALS['connection'] ?? null;
@@ -20,6 +19,7 @@ function createPost()
         $slug    = trim($_POST['slug'] ?? '');
         $excerpt = trim($_POST['Excerpt'] ?? '');
         $content = trim($_POST['content'] ?? '');
+        $category = trim($_POST['category'] ?? '');
         $rawTags = trim($_POST['tags'] ?? '');
         $tagsArray = array_map('trim', explode(',', $rawTags));
         $tags = json_encode($tagsArray);
@@ -66,7 +66,7 @@ function createPost()
             return false;
         }
 
-        $createBlog = new CreateBlog($title, $slug, $excerpt, $content, $tags, $imagePath, $connection);
+        $createBlog = new CreateBlog($title, $slug, $excerpt, $content, $category, $tags, $imagePath, $connection);
         $success = $createBlog->create();
 
         if ($success) {
