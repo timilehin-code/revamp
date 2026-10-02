@@ -25,6 +25,7 @@ $router->get('/Blog', function () {
 });
 // Route with dynamic URL parameters
 $router->get('/blog/{slug}', function ($slug) {
+    require_once __DIR__ . '/../config/conn.php';
     $connection = $GLOBALS['connection'] ?? null;
 
     if (!$connection) {
@@ -33,7 +34,7 @@ $router->get('/blog/{slug}', function ($slug) {
         return;
     }
 
-    $blogsModel = new Models\Views\Blogs($connection);
+    $blogsModel = new models\views\Blogs($connection);
     $post = $blogsModel->getBySlug($slug);
 
     // Render 404 page if no post matches the slug
@@ -43,7 +44,7 @@ $router->get('/blog/{slug}', function ($slug) {
         return;
     }
     // Load single post view and pass $post
-    require_once __DIR__ . '/../views/blog-single.php';
+    require_once __DIR__ . '/../views/blog-post.php';
 });
 
 $router->get('/Admin', function () {
