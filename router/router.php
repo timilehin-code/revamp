@@ -25,8 +25,25 @@ $router->get('/Blog', function () {
 });
 // Route with dynamic URL parameters
 $router->get('/blog/{slug}', function ($slug) {
-    $cleanSlug = htmlspecialchars($slug);
-    require_once __DIR__ . '/../views/blog-post.php';
+    $connection = $GLOBALS['connection'] ?? null;
+
+    if (!$connection) {
+        logProjectError("Router Error: \$connection is null.");
+        echo "Database connection failed.";
+        return;
+    }
+
+    $blogsModel = new Models\Views\Blogs($connection);
+    $post = $blogsModel->getBySlug($slug);
+
+    // Render 404 page if no post matches the slug
+    if (!$post) {
+        header('HTTP/1.1 404 Not Found');
+        require_once __DIR__ . '/../views/404.php';
+        return;
+    }
+    // Load single post view and pass $post
+    require_once __DIR__ . '/../views/blog-single.php';
 });
 
 $router->get('/Admin', function () {

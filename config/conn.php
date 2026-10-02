@@ -16,6 +16,11 @@ ini_set('log_errors', '1');
 ini_set('error_log', $logDir . '/app.log');
 
 // Reusable custom logging function
+/**
+ * Logs a message to the app.log file with a timestamp.
+ *
+ * @param string $message The message to log.
+ */
 function logProjectError($message)
 {
     $logFile = __DIR__ . '/../logs/app.log';
