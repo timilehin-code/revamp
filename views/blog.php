@@ -34,7 +34,7 @@ include 'controllers/views/blog.php';
                 alt="<?php echo htmlspecialchars($blog['title']); ?>" />
             </div>
             <div class="post-card-content">
-              <div class="category">software development</div>
+              <div class="category"><?php echo htmlspecialchars($blog['category']) ?? "Uncategorized"; ?></div>
               <h4><?php echo htmlspecialchars($blog['title']); ?></h4>
               <div class="author-date d-flex justify-content-between">
                 <div class="author">

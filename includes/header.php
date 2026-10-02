@@ -22,6 +22,7 @@
     <!-- font awesome css -->
     <!-- favicon icon -->
     <link rel="shortcut icon" href="views/assets/img/profile.png" type="image/x-icon">
+    <link rel="shortcut icon" href="../views/assets/img/profile.png" type="image/x-icon">
     <!-- favicon ends -->
     <!-- custom css -->
     <link rel="stylesheet" href="views/assets/css/style.css">
