@@ -623,6 +623,9 @@ nav h5 {
 .author-date .date {
   color: var(--to-light-grey);
   font-size: 15px;
+  display: flex;
+  gap: 8px;
+  align-items: center;
 }
 
 .spotify-card {

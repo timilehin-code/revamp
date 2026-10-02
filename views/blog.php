@@ -41,7 +41,7 @@ include 'controllers/views/blog.php';
                   <i class="fa-regular fa-clock"></i> 3 mins read
                 </div>
                 <div class="date">
-                  <i class="fa-solid fa-calendar-days"></i> 12th June, 2024
+                  <i class="fa-solid fa-calendar-days"></i><?= date('d M, Y', strtotime(" ".$blog['created_at'])) ?>
                 </div>
               </div>
             </div>
