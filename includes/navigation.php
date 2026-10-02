@@ -10,9 +10,9 @@
          <div class="nav-links">
              <!-- the nav links begins -->
              <div class=" links">
-                 <a href="../home">Home</a>
-                 <a href="../home">About</a>
-                 <a href="../home">Contact</a>
+                 <a href="../revamp/home">Home</a>
+                 <a href="../revamp/home/about">About</a>
+                 <a href="../revamp/home/contact">Contact</a>
                  <a href="blog">Blog</a>
              </div>
          </div>

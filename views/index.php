@@ -18,7 +18,7 @@ include 'includes/navigation.php';
     <div class="note mx-5">
         <img src="views/assets/img/profile.png" alt="" class="mobile-profile">
         <h2>Welcome,</h2>
-        <h1>I'm Oluwatimilehin Tawose</h1>
+        <h1>I'm Olúwàtimíléhìn</h1>
         <h5>A Software Developer</h5>
         <p>"I am your go-to expert for creating digital solutions <span class="text-white">that seamlessly merge functionality,
                 awesomeness, and elegance</span>. My top priority is ensuring your satisfaction with every step of
@@ -48,148 +48,150 @@ include 'includes/navigation.php';
 </div>
 <!-- profile and about my self ends -->
 <!-- tech stacks  -->
-<div class="container mt-5">
-    <div class="stacks">
-        <h4 class=" text-center">Languages and stacks i use.</h4>
-        <div class="overflow-hidden d-flex stacks-logo  m-auto align-items-center justify-content-around">
-            <div class="d-flex logo">
-                <img src="views/assets/img/php_logo.png" alt="">
-                <img src="views/assets/img/mysql_logo.png" alt="">
-                <img src="views/assets/img/javascript_logo.png" alt="">
-                <img src="views/assets/img/html_logo.png" alt="">
-                <img src="views/assets/img/css_logo.png" alt="">
-                <img src="views/assets/img/github_logo.png" alt="">
-                <img src="views/assets/img/git_logo.png" alt="">
-                <img src="views/assets/img/bootstrap_logo.png" alt="">
-                <img src="views/assets/img/tailwind_logo.png" alt="">
-                <img src="views/assets/img/jquery_logo.png" alt="">
-                <img src="views/assets/img/wordpress_logo.png" alt="">
-                <img src="views/assets/img/python_logo.png" alt="">
-            </div>
-            <div class="d-flex logo">
-                <img src="views/assets/img/php_logo.png" alt="">
-                <img src="views/assets/img/mysql_logo.png" alt="">
-                <img src="views/assets/img/javascript_logo.png" alt="">
-                <img src="views/assets/img/html_logo.png" alt="">
-                <img src="views/assets/img/css_logo.png" alt="">
-                <img src="views/assets/img/github_logo.png" alt="">
-                <img src="views/assets/img/git_logo.png" alt="">
-                <img src="views/assets/img/bootstrap_logo.png" alt="">
-                <img src="views/assets/img/tailwind_logo.png" alt="">
-                <img src="views/assets/img/jquery_logo.png" alt="">
-                <img src="views/assets/img/wordpress_logo.png" alt="">
-                <img src="views/assets/img/python_logo.png" alt="">
+<section id="about">
+    <div class="container mt-5">
+        <div class="stacks">
+            <h4 class=" text-center">Languages and stacks i use.</h4>
+            <div class="overflow-hidden d-flex stacks-logo  m-auto align-items-center justify-content-around">
+                <div class="d-flex logo">
+                    <img src="views/assets/img/php_logo.png" alt="">
+                    <img src="views/assets/img/mysql_logo.png" alt="">
+                    <img src="views/assets/img/javascript_logo.png" alt="">
+                    <img src="views/assets/img/html_logo.png" alt="">
+                    <img src="views/assets/img/css_logo.png" alt="">
+                    <img src="views/assets/img/github_logo.png" alt="">
+                    <img src="views/assets/img/git_logo.png" alt="">
+                    <img src="views/assets/img/bootstrap_logo.png" alt="">
+                    <img src="views/assets/img/tailwind_logo.png" alt="">
+                    <img src="views/assets/img/jquery_logo.png" alt="">
+                    <img src="views/assets/img/wordpress_logo.png" alt="">
+                    <img src="views/assets/img/python_logo.png" alt="">
+                </div>
+                <div class="d-flex logo">
+                    <img src="views/assets/img/php_logo.png" alt="">
+                    <img src="views/assets/img/mysql_logo.png" alt="">
+                    <img src="views/assets/img/javascript_logo.png" alt="">
+                    <img src="views/assets/img/html_logo.png" alt="">
+                    <img src="views/assets/img/css_logo.png" alt="">
+                    <img src="views/assets/img/github_logo.png" alt="">
+                    <img src="views/assets/img/git_logo.png" alt="">
+                    <img src="views/assets/img/bootstrap_logo.png" alt="">
+                    <img src="views/assets/img/tailwind_logo.png" alt="">
+                    <img src="views/assets/img/jquery_logo.png" alt="">
+                    <img src="views/assets/img/wordpress_logo.png" alt="">
+                    <img src="views/assets/img/python_logo.png" alt="">
+                </div>
             </div>
         </div>
     </div>
-</div>
-</div>
-<!-- tech stacks ends  -->
-<!--  My projects and works i have done-->
-<div class="container mt-5 projects">
-    <h1 class=" text-center">My projects</h1>
-    <div class="row mt-3">
-        <div class="col-md-4 mt-4">
-            <a href="">
-                <div class="work-card">
-                    <div class="work-img">
-                        <img src="views/assets/img/portfolio.jpg" alt="">
+    </div>
+    <!-- tech stacks ends  -->
+    <!--  My projects and works i have done-->
+    <div class="container mt-5 projects">
+        <h1 class=" text-center">My projects</h1>
+        <div class="row mt-3">
+            <div class="col-md-4 mt-4">
+                <a href="">
+                    <div class="work-card">
+                        <div class="work-img">
+                            <img src="views/assets/img/portfolio.jpg" alt="">
+                        </div>
+                        <h4 class=" mt-2">Portfolio</h4>
+                        <p class=" text-justify mt-3">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                            Nobis deserunt officiis similique reprehenderit eius odit tenetur nesciunt ipsa dolorem,
+                            itaque
+                            pariatur magni eligendi cumque fuga unde amet dolores doloremque eum rem nisi architecto
+                            hic?
+                        </p>
                     </div>
-                    <h4 class=" mt-2">Portfolio</h4>
-                    <p class=" text-justify mt-3">Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Nobis deserunt officiis similique reprehenderit eius odit tenetur nesciunt ipsa dolorem,
-                        itaque
-                        pariatur magni eligendi cumque fuga unde amet dolores doloremque eum rem nisi architecto
-                        hic?
-                    </p>
-                </div>
-            </a>
-        </div>
-        <div class="col-md-4 mt-4">
-            <a href="">
-                <div class="work-card">
-                    <div class="work-img">
-                        <img src="views/assets/img/med_record_1.jpg" alt="">
+                </a>
+            </div>
+            <div class="col-md-4 mt-4">
+                <a href="">
+                    <div class="work-card">
+                        <div class="work-img">
+                            <img src="views/assets/img/med_record_1.jpg" alt="">
+                        </div>
+                        <h4 class=" mt-2">Portfolio</h4>
+                        <p class=" text-justify mt-3">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                            Nobis deserunt officiis similique reprehenderit eius odit tenetur nesciunt ipsa dolorem,
+                            itaque
+                            pariatur magni eligendi cumque fuga unde amet dolores doloremque eum rem nisi architecto
+                            hic?
+                        </p>
                     </div>
-                    <h4 class=" mt-2">Portfolio</h4>
-                    <p class=" text-justify mt-3">Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Nobis deserunt officiis similique reprehenderit eius odit tenetur nesciunt ipsa dolorem,
-                        itaque
-                        pariatur magni eligendi cumque fuga unde amet dolores doloremque eum rem nisi architecto
-                        hic?
-                    </p>
-                </div>
-            </a>
-        </div>
-        <div class="col-md-4 mt-4">
-            <a href="">
-                <div class="work-card">
-                    <div class="work-img">
-                        <img src="views/assets/img/portfolio.jpg" alt="">
+                </a>
+            </div>
+            <div class="col-md-4 mt-4">
+                <a href="">
+                    <div class="work-card">
+                        <div class="work-img">
+                            <img src="views/assets/img/portfolio.jpg" alt="">
+                        </div>
+                        <h4 class="mt-2">Portfolio</h4>
+                        <p class="text-justify mt-3">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                            Nobis deserunt officiis similique reprehenderit eius odit tenetur nesciunt ipsa dolorem,
+                            itaque
+                            pariatur magni eligendi cumque fuga unde amet dolores doloremque eum rem nisi architecto
+                            hic?
+                        </p>
                     </div>
-                    <h4 class="mt-2">Portfolio</h4>
-                    <p class="text-justify mt-3">Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Nobis deserunt officiis similique reprehenderit eius odit tenetur nesciunt ipsa dolorem,
-                        itaque
-                        pariatur magni eligendi cumque fuga unde amet dolores doloremque eum rem nisi architecto
-                        hic?
-                    </p>
-                </div>
-            </a>
-        </div>
-        <div class="col-md-4 mt-4">
-            <a href="">
-                <div class="work-card">
-                    <div class="work-img">
-                        <img src="views/assets/img/portfolio.jpg" alt="">
+                </a>
+            </div>
+            <div class="col-md-4 mt-4">
+                <a href="">
+                    <div class="work-card">
+                        <div class="work-img">
+                            <img src="views/assets/img/portfolio.jpg" alt="">
+                        </div>
+                        <h4 class=" mt-2">Portfolio</h4>
+                        <p class=" text-justify mt-3">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                            Nobis deserunt officiis similique reprehenderit eius odit tenetur nesciunt ipsa dolorem,
+                            itaque
+                            pariatur magni eligendi cumque fuga unde amet dolores doloremque eum rem nisi architecto
+                            hic?
+                        </p>
                     </div>
-                    <h4 class=" mt-2">Portfolio</h4>
-                    <p class=" text-justify mt-3">Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Nobis deserunt officiis similique reprehenderit eius odit tenetur nesciunt ipsa dolorem,
-                        itaque
-                        pariatur magni eligendi cumque fuga unde amet dolores doloremque eum rem nisi architecto
-                        hic?
-                    </p>
-                </div>
-            </a>
-        </div>
-        <div class="col-md-4 mt-4">
-            <a href="">
-                <div class="work-card">
-                    <div class="work-img">
-                        <img src="views/assets/img/med_record_1.jpg" alt="">
+                </a>
+            </div>
+            <div class="col-md-4 mt-4">
+                <a href="">
+                    <div class="work-card">
+                        <div class="work-img">
+                            <img src="views/assets/img/med_record_1.jpg" alt="">
+                        </div>
+                        <h4 class=" mt-2">Portfolio</h4>
+                        <p class=" text-justify mt-3">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                            Nobis deserunt officiis similique reprehenderit eius odit tenetur nesciunt ipsa dolorem,
+                            itaque
+                            pariatur magni eligendi cumque fuga unde amet dolores doloremque eum rem nisi architecto
+                            hic?
+                        </p>
                     </div>
-                    <h4 class=" mt-2">Portfolio</h4>
-                    <p class=" text-justify mt-3">Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Nobis deserunt officiis similique reprehenderit eius odit tenetur nesciunt ipsa dolorem,
-                        itaque
-                        pariatur magni eligendi cumque fuga unde amet dolores doloremque eum rem nisi architecto
-                        hic?
-                    </p>
-                </div>
-            </a>
-        </div>
-        <div class="col-md-4 mt-4">
-            <a href="">
-                <div class="work-card">
-                    <div class="work-img">
-                        <img src="views/assets/img/portfolio.jpg" alt="">
+                </a>
+            </div>
+            <div class="col-md-4 mt-4">
+                <a href="">
+                    <div class="work-card">
+                        <div class="work-img">
+                            <img src="views/assets/img/portfolio.jpg" alt="">
+                        </div>
+                        <h4 class=" mt-2">Portfolio</h4>
+                        <p class=" text-justify mt-3">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                            Nobis deserunt officiis similique reprehenderit eius odit tenetur nesciunt ipsa dolorem,
+                            itaque
+                            pariatur magni eligendi cumque fuga unde amet dolores doloremque eum rem nisi architecto
+                            hic?
+                        </p>
                     </div>
-                    <h4 class=" mt-2">Portfolio</h4>
-                    <p class=" text-justify mt-3">Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Nobis deserunt officiis similique reprehenderit eius odit tenetur nesciunt ipsa dolorem,
-                        itaque
-                        pariatur magni eligendi cumque fuga unde amet dolores doloremque eum rem nisi architecto
-                        hic?
-                    </p>
-                </div>
-            </a>
+                </a>
+            </div>
         </div>
     </div>
-</div>
+</section>
 <!-- my projects and works i have done ends -->
 <!-- contact me begings  -->
-<div class="container mt-5 contact">
+<div class="container mt-5 contact" id="contact">
     <h4 class="text-center ">Contact</h4>
     <h2 class="text-center ">Get In Touch</h2>
 
