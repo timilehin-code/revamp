@@ -1,6 +1,15 @@
 <?php
 include 'includes/header.php';
 include 'includes/navigation.php';
+$jsonString = $post['tags']; // e.g., '["design","php"]' or '{"key":"value"}'
+  
+// Decode the JSON string into an array
+$tags = json_decode($jsonString, true);
+
+if (is_array($tags) && !empty($tags)) {
+  // 2. Prepend '#' to each tag and join with spaces
+  $formattedTags = implode('  ', array_map(fn($tag) => '#' . trim($tag), $tags));
+}
 ?>
 <main class="blog-post">
   <div class="container">
@@ -10,7 +19,7 @@ include 'includes/navigation.php';
       <a href="../blog">Blog</a>
     </div>
     <div class="category">
-      <p>Technology</p>
+      <p><?= htmlspecialchars($post["category"]) ?></p>
     </div>
     <div class="title">
       <h2>
@@ -18,11 +27,11 @@ include 'includes/navigation.php';
       </h2>
     </div>
     <div class="hashtag">
-      <p>#Technology</p>
-      <p>#Fintech</p>
+      <p><?= htmlspecialchars($formattedTags) ?></p>
+      <!-- <p>#Fintech</p>
       <p>#Finance</p>
       <p>#Software</p>
-      <p>#System</p>
+      <p>#System</p> -->
     </div>
     <div class="blog-image">
       <?php if (!empty($post['cover_image'])): ?>
@@ -41,9 +50,9 @@ include 'includes/navigation.php';
     <div class="share">
       <div class="links">
         <p>share:</p>
-        <a href=""> <i class="fa-brands fa-facebook"></i></a>
-        <a href=""> <i class="fa-brands fa-x-twitter"></i></a>
-        <a href=""><i class="fa-brands fa-linkedin"></i></a>
+        <a href="https://www.facebook.com/sharer/sharer.php?u=<?= urlencode($_SERVER['REQUEST_URI']) ?>" target="_blank"> <i class="fa-brands fa-facebook"></i></a>
+        <a href="https://twitter.com/intent/tweet?text=<?= urlencode($post['title']) ?>&url=<?= urlencode($_SERVER['REQUEST_URI']) ?>" target="_blank"> <i class="fa-brands fa-x-twitter"></i></a>
+        <a href="https://www.linkedin.com/shareArticle?mini=true&url=<?= urlencode($_SERVER['REQUEST_URI']) ?>&title=<?= urlencode($post['title']) ?>" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
       </div>
       <a href="/revamp/blog">
         <button>Back to blog</button>
