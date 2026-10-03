@@ -11,9 +11,9 @@
              <!-- the nav links begins -->
              <div class=" links">
                  <a href="../revamp/home">Home</a>
-                 <a href="../revamp/home/about">About</a>
-                 <a href="../revamp/home/contact">Contact</a>
-                 <a href="blog">Blog</a>
+                 <a href="../revamp/home#about">About</a>
+                 <a href="../revamp/home#contact">Contact</a>
+                 <a href="../revamp/blog">Blog</a>
              </div>
          </div>
          <!-- the nav links ends -->

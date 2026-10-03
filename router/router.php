@@ -16,12 +16,7 @@ $router->set404(function () {
 $router->get('/home', function () {
     require_once __DIR__ . '/../views/index.php';
 });
-$router->get('../revamp/home/about', function () {
-    require_once __DIR__ . '/../views/index.php#about';
-});
-$router->get('../revamp/home/contact', function () {
-    require_once __DIR__ . '/../views/index.php#contact';
-});
+
 $router->get('/blog', function () {
     require_once __DIR__ . '/../views/blog.php';
 });
