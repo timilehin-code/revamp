@@ -53,49 +53,6 @@ function sendEmail() {
   // Disable button to prevent multiple submissions
   submitBtn.disabled = true;
   submitBtn.textContent = "Sending...";
-
-  // EmailJS parameters
-  const templateParams = {
-    name: name,
-    email: email,
-    subject: subject,
-    message: message, // Replace with your email address
-  };
-
-  const serviceId = "service_z8chcra";
-  const templateId = "template_wivdpyk";
-  emailjs
-    .send(serviceId, templateId, templateParams)
-    .then(() => {
-      statusElement.textContent = "Message sent successfully!";
-      statusElement.className = " text-success text-center mt-4";
-      statusElement.style.display = "block";
-      // Clear form
-      document.getElementById("name").value = "";
-      document.getElementById("email").value = "";
-      document.getElementById("subject").value = "";
-      document.getElementById("message").value = "";
-
-      setTimeout(() => {
-        statusElement.style.display = "none";
-      }, 5000);
-    })
-    .catch((error) => {
-      statusElement.textContent = `Failed to send message: ${
-        error.text || "Unknown error"
-      }. Please try again.`;
-      statusElement.className = "text-danger text-center mt-4";
-      statusElement.style.display = "block";
-
-      setTimeout(() => {
-        statusElement.style.display = "none";
-      }, 5000);
-    })
-    .finally(() => {
-      // Re-enable button
-      submitBtn.disabled = false;
-      submitBtn.textContent = "Send";
-    });
 }
 
 // lenis js for smooth scroll
@@ -416,7 +373,7 @@ if (blogTitle && blogSlug) {
     blogSlug.value = SlugValue.toLowerCase()
       .trim()
       .replace(/[^a-z0-9\s-]/g, "")
-      .replace(/\s+/g, symbol) 
+      .replace(/\s+/g, symbol)
       .replace(/-+/g, symbol);
   });
 }
