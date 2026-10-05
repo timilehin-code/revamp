@@ -5,42 +5,28 @@ include 'includes/navigation.php';
 <div class="grain-overlay"></div>
 
 <!-- profile and about myself -->
-<div class="d-flex mt-5 home">
-    <div class="socials mx-5">
-        <i class="fa-brands fa-facebook"></i><br>
-        <i class="fa-brands fa-x-twitter"></i><br>
-        <i class="fa-brands fa-linkedin"></i><br>
-        <i class="fa-brands fa-github"></i><br>
-        <i class="fa-solid fa-envelope"></i>
-    </div>
-    <div class="line"></div>
-
-    <div class="note mx-5">
-        <img src="views/assets/img/profile.png" alt="" class="mobile-profile">
-        <h2>Welcome,</h2>
-        <h1>I'm Olúwàtimíléhìn</h1>
-        <h5>A Software Developer</h5>
-        <p>"I am your go-to expert for creating digital solutions <span class="text-white">that seamlessly merge functionality,
-                awesomeness, and elegance</span>. My top priority is ensuring your satisfaction with every step of
-            the process. When I'm not coding, I indulge in my passions for music, movies, rest, and reading. With my
-            expertise, you can rest easy knowing your digital needs are in good hands."</p>
-        <p class="mt-3">So if you are looking for someone who does not only create effective digital solutions but
-            also thrives at providing digital solutions for businesses and startups, then I am your go-to guy. </p>
-
-        <div class="d-flex gap-4 buttons mt-3">
-            <a href="" class="btn"><i class="fa-solid fa-briefcase"></i> Let's work</a>
-            <a href="" class="btn "><i class="fa-solid fa-download"></i> Download Cv</a>
+<section class=" hero container d-flex mt-3 justify-content-center">
+    <div class="d-flex flex-column mt-3 justify-content-center">
+        <div class="Avatar">
+            <img src="views/assets/img/timi.webp" alt="A picture of Timi Oluwatimilehin">
         </div>
-        <div class="socials-m d-flex ">
-            <i class="fa-brands fa-facebook"></i><br>
-            <i class="fa-brands fa-x-twitter"></i><br>
-            <i class="fa-brands fa-linkedin"></i><br>
-            <i class="fa-brands fa-github"></i><br>
-            <i class="fa-solid fa-envelope"></i>
+        <h1 class="text-center">Olúwàtimíléhìn.</h1>
+        <h6 class="text-center">(oluwatimilehin.)</h6>
+        <div class="short-note">
+            <p class="text-center">
+                I'm Timi, a Computer Science student with a passion for tech, software, and cybersecurity. Outside of tech, I'm a big music lover, I play chess on <span><img src="views/assets/img/chess.png" alt=""><a href="https://www.chess.com/member/apex_predator01" target="_blank">chess.com</a></span>, and I follow corporate finance and fintech news .
+            </p>
+        </div>
+        <div class="easter-egg">
+            <p class="text-center">I am unbeatable because my only opponent has always been me.</p>
+        </div>
+        <div class="resume">
+            <a href="" class="text-center"><i class="fa-solid fa-download"></i> resume</a>
         </div>
     </div>
-    <img src="views/assets/img/profile.png" alt="">
-</div>
+</section>
+
+
 <div class="d-flex mt-5 justify-content-center">
     <div id="spotify-widget" class="spotify-card mt-5">
         <div class="spotify-loading">Loading...</div>

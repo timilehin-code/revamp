@@ -159,11 +159,20 @@
     font-size: 18px;
     text-align: justify;
   }
+  .short-note {
+    margin: auto;
+    width: 80%;
+  }
 }
 
 @media (min-width: 450px) and (max-width: 780px) {
   body {
     overflow-x: hidden;
+  }
+
+  .short-note {
+    margin: auto;
+    width: 80%;
   }
 
   .nav-links {
