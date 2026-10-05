@@ -274,6 +274,11 @@ nav h5 {
   overflow-x: hidden;
 }
 
+.easter-egg{
+  margin: auto;
+  width: 80%;
+}
+
 .easter-egg p {
   font-family: jargon;
   font-size: 28px;
