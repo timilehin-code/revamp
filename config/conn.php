@@ -40,7 +40,7 @@ function connection()
 {
     $dbHost     = $_ENV['DB_HOST']     ?? null;
     $dbUser     = $_ENV['DB_USER']     ?? null;
-    $dbPassword = $_ENV['PASSWORD']    ?? null;   // or DB_PASSWORD — match your .env
+    $dbPassword = $_ENV['PASSWORD']    ?? null;   
     $dbName     = $_ENV['DB_NAME']     ?? null;
 
     if (!$dbHost || !$dbUser || !$dbName) {
