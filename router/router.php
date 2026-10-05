@@ -59,9 +59,19 @@ $router->get('/admin/create-blog', function () {
 $router->get('/admin/blogs/', function () {
     require_once __DIR__ . '/../admin/blogs.php';
 });
+
+// 
 $router->post('/controllers/create-blog', function () {
     require_once __DIR__ . '/../controllers/admin/createBlog.php';
     createPost();
+});
+
+$router->post('/mail', function () {
+
+    require_once __DIR__ . '/../config/conn.php';
+
+    require_once __DIR__ . '/../controllers/views/mail.php';
+    sendMail();
 });
 
 // Execute the router
