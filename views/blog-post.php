@@ -1,7 +1,7 @@
 <?php
 include 'includes/header.php';
 include 'includes/navigation.php';
-$jsonString = $post['tags']; // e.g., '["design","php"]' or '{"key":"value"}'
+$jsonString = $post['tags']; 
   
 // Decode the JSON string into an array
 $tags = json_decode($jsonString, true);
@@ -28,10 +28,6 @@ if (is_array($tags) && !empty($tags)) {
     </div>
     <div class="hashtag">
       <p><?= htmlspecialchars($formattedTags) ?></p>
-      <!-- <p>#Fintech</p>
-      <p>#Finance</p>
-      <p>#Software</p>
-      <p>#System</p> -->
     </div>
     <div class="blog-image">
       <?php if (!empty($post['cover_image'])): ?>
