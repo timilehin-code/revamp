@@ -49,6 +49,11 @@ html {
     rgba(249, 248, 113, 1) 98%
   );
 }
+
+@font-face {
+  font-family: jargon;
+  src: url(../fonts/Byron.ttf);
+}
 /* Native View Transitions (Chromium browsers) */
 @view-transition {
   navigation: auto;

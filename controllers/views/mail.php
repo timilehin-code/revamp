@@ -37,7 +37,7 @@ function sendMail()
 
     try {
         // --- Server Settings ---
-        $mail->SMTPDebug = SMTP::DEBUG_SERVER; // Set to DEBUG_OFF for production
+        $mail->SMTPDebug = SMTP::DEBUG_OFF; // Set to DEBUG_OFF for production
         $mail->isSMTP();
         $mail->Host       = $host;
         $mail->SMTPAuth   = true;
@@ -51,7 +51,7 @@ function sendMail()
         $mail->setFrom($userName, 'Portfolio Contact Form');
 
         // Recipient is YOUR inbox
-        $mail->addAddress($userName, 'Oluwatimilehin');
+        $mail->addAddress($userName, 'Olúwàtimíléhìn');
 
         // Set visitor's email so clicking "Reply" responds directly to them
         $mail->addReplyTo($email, $name);
@@ -108,7 +108,7 @@ function sendMail()
         $autoReply->Port       = (int) $port;
 
         // Sender is you, Recipient is the visitor
-        $autoReply->setFrom($userName, 'Oluwatimilehin');
+        $autoReply->setFrom($userName, 'Olúwàtimíléhìn');
         $autoReply->addAddress($email, $name);
 
         $autoReply->isHTML(true);
@@ -130,7 +130,7 @@ function sendMail()
         <div style="border-top: 1px solid #343232; pt: 16px; margin-top: 20px;">
             <p style="margin: 16px 0 0 0; font-size: 12px; color: #717171;">
                 Best regards,<br>
-                <strong style="color: #ffffff;">Oluwatimilehin</strong>
+                <strong style="color: #ffffff;">Olúwàtimíléhìn</strong>
             </p>
         </div>
     </div>';
