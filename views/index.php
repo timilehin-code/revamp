@@ -224,22 +224,22 @@ include 'includes/navigation.php';
             </div>
         </div>
     </div>
-    <form action="" class="mt-4" method="post">
+    <form action="/revamp/mail" class="mt-4" method="POST" id="contact-form">
         <div class="row">
             <div class="col-md-6 mt-2">
-                <input type="text" name="" class="w-100" id="name" placeholder="Name">
+                <input type="text" name="name" class="w-100" id="name" placeholder="Name">
             </div>
             <div class="col-md-6 mt-2">
-                <input type="email" name="" class="w-100" id="email" placeholder="Email">
+                <input type="email" name="email" class="w-100" id="email" placeholder="Email">
             </div>
             <div class="col-md-6 mt-3">
-                <input type="text" name="" class="w-100" id="subject" placeholder="Subject">
+                <input type="text" name="subject" class="w-100" id="subject" placeholder="Subject">
             </div>
             <div class="col-md-6 mt-3">
-                <input type="text" name="" class="w-100" id="message" placeholder="Message">
+                <input type="text" name="message" class="w-100" id="message" placeholder="Message">
             </div>
             <div class="text-center mt-4">
-                <button type="button" onclick="sendEmail()" class=" send-btn"> Send</button>
+                <button type="submit" class=" send-btn"> Send</button>
             </div>
         </div>
     </form>
