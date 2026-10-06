@@ -66,6 +66,21 @@ include 'includes/header.php';
     </section>
     </main>
 </div>
+
 <?php
 include 'includes/script.php';
 ?>
+<script>
+    const easyMDE = new EasyMDE({
+        element: document.getElementById('p-content'),
+        placeholder: 'Write your post here... Use ```php for code blocks!',
+        spellChecker: false,
+        status: ['lines', 'words'], // Shows word count at bottom right
+        toolbar: [
+            'bold', 'italic', 'heading', '|',
+            'quote', 'unordered-list', 'ordered-list', '|',
+            'link', 'image', 'code', 'table', '|',
+            'preview', 'side-by-side', 'fullscreen'
+        ]
+    });
+</script>

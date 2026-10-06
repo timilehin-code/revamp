@@ -30,7 +30,11 @@
     <link rel="stylesheet" href="../views/assets/css/style.css">
     <link rel="stylesheet" href="../views/assets/css/mediaquery.css">
     <!-- custom css ends  -->
+
+    <!-- EasyMDE CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/easymde/dist/easymde.min.css">
     <title>Home</title>
+
 </head>
 
 <body>

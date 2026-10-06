@@ -1,5 +1,8 @@
    <!-- lenis js -->
    <script src="https://unpkg.com/lenis@1.3.26/dist/lenis.min.js"></script>
+   <!--  Add EasyMDE JS > -->
+   <script src="https://cdn.jsdelivr.net/npm/easymde/dist/easymde.min.js"></script>
+   <!-- custom javascript -->
    <script src="views/assets/js/app.js"></script>
    <script src="../views/assets/js/app.js"></script>
 

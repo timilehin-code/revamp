@@ -251,6 +251,12 @@ nav h5 {
 .short-note span a {
   color: #81b64c !important;
 }
+.editor-toolbar{
+  display: flex !important;
+  color: var(--to-white) !important;
+  /* flex-wrap: wrap; */
+  overflow: auto;
+}
 @keyframes glow-pulse {
   0%,
   100% {
