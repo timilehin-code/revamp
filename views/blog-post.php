@@ -35,9 +35,7 @@ if (is_array($tags) && !empty($tags)) {
       <?php endif; ?>
     </div>
     <section class="blog-note">
-      <p>
-        <?= nl2br(htmlspecialchars($post['content'])) ?>
-      </p>
+      <?= $post['content'] ?>
     </section>
   </div>
 
@@ -128,7 +126,12 @@ if (is_array($tags) && !empty($tags)) {
     </div>
   </div>
 </main>
+<!-- 3. Trigger Highlighting -->
+
 <?php
 include 'includes/footer.php';
 include 'includes/script.php';
 ?>
+<script>
+  hljs.highlightAll();
+</script>
