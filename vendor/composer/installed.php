@@ -3,7 +3,7 @@
         'name' => 'oluwatimilehin/app',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => '37822a75807ce1ff3425414bf190fde93665dc5c',
+        'reference' => 'eb46b59583bb37d94df8ff6b5fd2f2955c884514',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -19,6 +19,15 @@
             'aliases' => array(),
             'dev_requirement' => false,
         ),
+        'erusev/parsedown' => array(
+            'pretty_version' => '1.8.0',
+            'version' => '1.8.0.0',
+            'reference' => '96baaad00f71ba04d76e45b4620f54d3beabd6f7',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../erusev/parsedown',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
         'graham-campbell/result-type' => array(
             'pretty_version' => 'v1.2.0',
             'version' => '1.2.0.0',
@@ -31,7 +40,7 @@
         'oluwatimilehin/app' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => '37822a75807ce1ff3425414bf190fde93665dc5c',
+            'reference' => 'eb46b59583bb37d94df8ff6b5fd2f2955c884514',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),

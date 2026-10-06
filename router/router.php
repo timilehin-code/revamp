@@ -43,6 +43,9 @@ $router->get('/blog/{slug}', function ($slug) {
         require_once __DIR__ . '/../views/404.php';
         return;
     }
+    $parseDown = new Parsedown();
+    $parseDown->setSafeMode(true);
+    $post['content'] = $parseDown->text($post['content']);
     // Load single post view and pass $post
     require_once __DIR__ . '/../views/blog-post.php';
 });

@@ -33,6 +33,8 @@
 
     <!-- EasyMDE CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/easymde/dist/easymde.min.css">
+    <!-- Prism.js Dark Theme for Code Syntax Highlighting -->
+    <link rel="stylesheet" href="[https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css](https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css)">
     <title>Home</title>
 
 </head>

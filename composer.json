@@ -8,6 +8,7 @@
   "require": {
     "bramus/router": "^1.6",
     "phpmailer/phpmailer": "^7.1",
-    "vlucas/phpdotenv": "^5.7"
+    "vlucas/phpdotenv": "^5.7",
+    "erusev/parsedown": "^1.8"
   }
 }

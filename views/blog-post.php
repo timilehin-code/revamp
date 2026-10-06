@@ -1,8 +1,8 @@
 <?php
 include 'includes/header.php';
 include 'includes/navigation.php';
-$jsonString = $post['tags']; 
-  
+$jsonString = $post['tags'];
+
 // Decode the JSON string into an array
 $tags = json_decode($jsonString, true);
 
