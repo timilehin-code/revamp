@@ -14,14 +14,14 @@ include 'includes/navigation.php';
         <h6 class="text-center">(oluwatimilehin.)</h6>
         <div class="short-note">
             <p class="text-center">
-                I'm Timi, a Computer Science student with a passion for tech, software, and cybersecurity. Outside of tech, I'm a big music lover, I play chess on <span><img src="views/assets/img/chess.png" alt=""><a href="https://www.chess.com/member/apex_predator01" target="_blank">chess.com</a></span>, and I follow corporate finance and fintech news .
+                I'm Timi, a Software engineer and Computer Science student with a passion for tech, software, and cybersecurity. Outside of tech, I'm a big music and podcast lover, I play chess on <span><img src="views/assets/img/chess.png" alt=""><a href="https://www.chess.com/member/apex_predator01" target="_blank">chess.com</a></span>, I follow corporate finance and fintech news, and I also support Arsenal Fc.
             </p>
         </div>
         <div class="easter-egg">
             <p class="text-center">I am unbeatable because my only opponent has always been me.</p>
         </div>
         <div class="resume">
-            <a href="" class="text-center"><i class="fa-solid fa-download"></i> resume</a>
+            <a href="" class="text-center"><i class="fa-solid fa-download"></i> Resume</a>
         </div>
     </div>
 </section>
