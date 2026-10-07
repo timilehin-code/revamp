@@ -67,6 +67,11 @@ $router->get('/admin/login', function () {
     require_once __DIR__ . '/../admin/login.php';
 });
 
+$router->get('/admin/logout', function () {
+    require_once __DIR__ . '/../controllers/admin/authentication.php';
+    logout();
+});
+
 $router->post('/controllers/login', function () {
     require_once __DIR__ . '/../controllers/admin/authentication.php';
     login();
