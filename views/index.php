@@ -1,6 +1,10 @@
 <?php
 include 'includes/header.php';
 include 'includes/navigation.php';
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+
 ?>
 <div class="grain-overlay"></div>
 
@@ -178,6 +182,7 @@ include 'includes/navigation.php';
 <!-- my projects and works i have done ends -->
 <!-- contact me begings  -->
 <div class="container mt-5 contact" id="contact">
+
     <h4 class="text-center ">Contact</h4>
     <h2 class="text-center ">Get In Touch</h2>
 
@@ -229,7 +234,16 @@ include 'includes/navigation.php';
             </div>
         </div>
     </form>
-    <div id="status" class=""></div>
+    <?php
+    if (isset($_SESSION['error_message']) && !empty($_SESSION['error_message'])) {
+        echo '<p class="error-message text-danger mt-5 text-center">' . htmlspecialchars($_SESSION['error_message']) . '</p>';
+        unset($_SESSION['error_message']);
+    }
+    if (isset($_SESSION['success_message']) && !empty($_SESSION['success_message'])) {
+        echo '<p class="success-message text-success mt-5 text-center">' . htmlspecialchars($_SESSION['success_message']) . '</p>';
+        unset($_SESSION['success_message']);
+    }
+    ?>
 </div>
 <!-- contact me ends -->
 

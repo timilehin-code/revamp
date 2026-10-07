@@ -4,6 +4,10 @@ use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 use PHPMailer\PHPMailer\SMTP;
 
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+
 require_once __DIR__ . '/../../vendor/autoload.php';
 
 function sendMail()
@@ -11,8 +15,9 @@ function sendMail()
     // 1. Guard clause: Ensure request is POST
     if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
         http_response_code(405);
-        echo 'Method Not Allowed';
-        return;
+        $_SESSION['error_message'] = 'Request Denied';
+        header('Location:home#contact');
+        exit;
     }
 
     // 2. Extract & Sanitize Inputs
@@ -23,8 +28,9 @@ function sendMail()
 
     if (!$email || empty($name) || empty($message)) {
         http_response_code(400);
-        echo 'Invalid input or email address provided.';
-        return;
+        $_SESSION['error_message'] = 'Invalid input or email address provided.';
+        header('Location:home#contact');
+        exit;
     }
 
     // 3. Load Environment Variables safely
@@ -85,13 +91,14 @@ function sendMail()
         </div>';
 
         $mail->send();
-        echo 'Message has been sent successfully.';
     } catch (Exception $e) {
         if (function_exists('logProjectError')) {
             logProjectError("Mailer Error: " . $mail->ErrorInfo);
+            http_response_code(500);
+            $_SESSION['error_message'] = "Message could not be sent. Please try again later.";
+            header('Location:home#contact');
+            exit;
         }
-        http_response_code(500);
-        echo "Message could not be sent. Please try again later.";
     }
 
     $mail->send();
@@ -135,11 +142,15 @@ function sendMail()
         </div>
     </div>';
 
-        $autoReply->send();
+        if ($autoReply->send()) {
+            $_SESSION['success_message'] = "Message sent successfully!";
+            header('Location:home#contact');
+            exit;
+        }
     } catch (Exception $e) {
         // Log if the auto-reply fails, but don't stop execution since the main mail sent
         if (function_exists('logProjectError')) {
-            logProjectError("Auto-reply Error: " . $autoReply->ErrorInfo);
+            logProjectError("Auto-reply Error: " .$autoReply->ErrorInfo);
         }
     }
 }
