@@ -101,8 +101,6 @@ function sendMail()
         }
     }
 
-    $mail->send();
-
     // --- 2. Send Automatic Feedback / Auto-Reply to Visitor ---
     try {
         $autoReply = new PHPMailer(true);
@@ -115,7 +113,7 @@ function sendMail()
         $autoReply->Port       = (int) $port;
 
         // Sender is you, Recipient is the visitor
-        $autoReply->setFrom($userName, 'Olúwàtimíléhìn');
+        $autoReply->setFrom($userName, 'Oluwatimilehin');
         $autoReply->addAddress($email, $name);
 
         $autoReply->isHTML(true);
@@ -150,7 +148,7 @@ function sendMail()
     } catch (Exception $e) {
         // Log if the auto-reply fails, but don't stop execution since the main mail sent
         if (function_exists('logProjectError')) {
-            logProjectError("Auto-reply Error: " .$autoReply->ErrorInfo);
+            logProjectError("Auto-reply Error: " . $autoReply->ErrorInfo);
         }
     }
 }
