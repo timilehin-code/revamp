@@ -6,14 +6,20 @@ $router = new Router();
 
 // Simple GET route
 $router->get('/', function () {
+    require_once __DIR__ . '/../config/conn.php';
     require_once __DIR__ . '/../views/index.php';
 });
+
+
+
+
 // 404 Handler
 $router->set404(function () {
     header('HTTP/1.1 404 Not Found');
     require_once __DIR__ . '/../views/404.php';
 });
 $router->get('/home', function () {
+    require_once __DIR__ . '/../config/conn.php';
     require_once __DIR__ . '/../views/index.php';
 });
 
