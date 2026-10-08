@@ -25,9 +25,15 @@ function register()
         header("Location: /revamp/admin/register");
         exit;
     }
-
+    $token = $_POST['csrf_token'] ?? '';
+    if (!verifyCsrfToken($token)) {
+        logProjectError("CSRF Verification Failed: Invalid or missing token.");
+        http_response_code(403);
+        die("Invalid security token. Please refresh the page and try again.");
+    }
     $name = filter_var(trim($_POST['name'] ?? ''), FILTER_SANITIZE_FULL_SPECIAL_CHARS);
     $pswd = trim($_POST['password'] ?? '');
+
 
     if (empty($name) || empty($pswd)) {
         $_SESSION['error_message'] = "Username and password are required.";
@@ -64,6 +70,12 @@ function login()
         $_SESSION['error_message'] = 'Request Denied';
         header("Location: /revamp/admin/login");
         exit;
+    }
+    $token = $_POST['csrf_token'] ?? '';
+    if (!verifyCsrfToken($token)) {
+        logProjectError("CSRF Verification Failed: Invalid or missing token.");
+        http_response_code(403);
+        die("Invalid security token. Please refresh the page and try again.");
     }
 
     $name = filter_var(trim($_POST['name'] ?? ''), FILTER_SANITIZE_FULL_SPECIAL_CHARS);

@@ -10,6 +10,7 @@ if (session_status() === PHP_SESSION_NONE) {
       <h3 class="text-center">Register</h3>
     </div>
     <form action="/revamp/controllers/register" method="POST">
+      <input type="hidden" name="csrf_token" value="<?= generateCsrfToken() ?>">
       <?php
       if (isset($_SESSION['error_message']) && !empty($_SESSION['error_message'])) {
         echo '<p class="error-message text-danger text-center">' . htmlspecialchars($_SESSION['error_message']) . '</p>';
