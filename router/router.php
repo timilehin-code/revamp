@@ -61,14 +61,14 @@ $router->get('/Admin', function () {
 });
 
 
-$router->get('/admin/register', function () {
-    require_once __DIR__ . '/../admin/registration.php';
-});
+// $router->get('/admin/register', function () {
+//     require_once __DIR__ . '/../admin/registration.php';
+// });
 
-$router->post('/controllers/register', function () {
-    require_once __DIR__ . '/../controllers/admin/authentication.php';
-    register();
-});
+// $router->post('/controllers/register', function () {
+//     require_once __DIR__ . '/../controllers/admin/authentication.php';
+//     register();
+// });
 $router->get('/admin/login', function () {
     require_once __DIR__ . '/../admin/login.php';
 });
