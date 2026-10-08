@@ -60,6 +60,9 @@ $router->get('/Admin', function () {
     require_once __DIR__ . '/../admin/index.php';
 });
 
+$router->get("/guests", function () {
+    require_once __DIR__ . '/../views/guests.php';
+});
 
 // $router->get('/admin/register', function () {
 //     require_once __DIR__ . '/../admin/registration.php';
@@ -70,6 +73,7 @@ $router->get('/Admin', function () {
 //     register();
 // });
 $router->get('/admin/login', function () {
+    require_once __DIR__ . '/../config/conn.php';
     require_once __DIR__ . '/../admin/login.php';
 });
 
@@ -84,6 +88,7 @@ $router->post('/controllers/login', function () {
 });
 
 $router->get('/admin/create-blog', function () {
+    require_once __DIR__ . '/../config/conn.php';
     require_once __DIR__ . '/../admin/create-blog.php';
 });
 
@@ -95,7 +100,7 @@ $router->get('/admin/blogs/', function () {
 // 
 $router->post('/controllers/create-blog', function () {
     require_once __DIR__ . '/../../config/conn.php';
-    
+
     require_once __DIR__ . '/../controllers/admin/createBlog.php';
     createPost();
 });

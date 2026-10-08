@@ -18,7 +18,7 @@ if (session_status() === PHP_SESSION_NONE) {
         <h6 class="text-center">(oluwatimilehin.)</h6>
         <div class="short-note">
             <p class="text-center">
-                I'm Timi, a Software engineer and Computer Science student with a passion for tech, software, and cybersecurity. Outside of tech, I'm a big music and podcast lover, I play chess on <span><img src="views/assets/img/chess.png" alt=""><a href="https://www.chess.com/member/apex_predator01" target="_blank">chess.com</a></span>, I follow corporate finance and fintech news, and I also support Arsenal Fc.
+                I'm Timi, a Software Engineer and Computer Science student with a deep obsession with tech, software, and cybersecurity. When I'm not coding, you'll find me listening to music and podcasts, playing chess on <span><img src="views/assets/img/chess.png" alt=""><a href="https://www.chess.com/member/apex_predator01" target="_blank">chess.com</a></span>, keeping up with corporate finance and fintech news, or cheering on Arsenal FC.
             </p>
         </div>
         <div class="easter-egg">
@@ -41,7 +41,7 @@ if (session_status() === PHP_SESSION_NONE) {
 <section id="about">
     <div class="container mt-5">
         <div class="stacks">
-            <h4 class=" text-center">Languages and stacks i use.</h4>
+            <h4 class=" text-center">Languages and stacks I use.</h4>
             <div class="overflow-hidden d-flex stacks-logo  m-auto align-items-center justify-content-around">
                 <div class="d-flex logo">
                     <img src="views/assets/img/php_logo.png" alt="">
