@@ -41,7 +41,7 @@ include 'controllers/views/blog.php';
                   <i class="fa-regular fa-clock"></i> 3 mins read
                 </div>
                 <div class="date">
-                  <i class="fa-solid fa-calendar-days"></i><?= date('d M, Y', strtotime(" ".$blog['created_at'])) ?>
+                  <i class="fa-solid fa-calendar-days"></i><?= date('d M, Y', strtotime(" " . $blog['created_at'])) ?>
                 </div>
               </div>
             </div>
@@ -50,132 +50,6 @@ include 'controllers/views/blog.php';
       <?php
       }
       ?>
-      <div class="post-card">
-        <a href="/blog/">
-          <div class="post-card-img">
-            <img
-              src="https://placehold.co/600x400?text=Hello+World"
-              alt="" />
-          </div>
-          <div class="post-card-content">
-            <div class="category">software development</div>
-            <h4>Understanding the Basics of Web Development</h4>
-            <div class="author-date d-flex justify-content-between">
-              <div class="author">
-                <i class="fa-regular fa-clock"></i> 3 mins read
-              </div>
-              <div class="date">
-                <i class="fa-solid fa-calendar-days"></i> 12th June, 2024
-              </div>
-            </div>
-          </div>
-        </a>
-      </div>
-      <div class="post-card">
-        <a href="blog-post.php">
-          <div class="post-card-img">
-            <img
-              src="https://placehold.co/600x400?text=Hello+World"
-              alt="" />
-          </div>
-          <div class="post-card-content">
-            <div class="category">software development</div>
-            <h4>Understanding the Basics of Web Development</h4>
-            <div class="author-date d-flex justify-content-between">
-              <div class="author">
-                <i class="fa-regular fa-clock"></i> 3 mins read
-              </div>
-              <div class="date">
-                <i class="fa-solid fa-calendar-days"></i> 12th June, 2024
-              </div>
-            </div>
-          </div>
-        </a>
-      </div>
-      <div class="post-card">
-        <a href="blog-post.php">
-          <div class="post-card-img">
-            <img
-              src="https://placehold.co/600x400?text=Hello+World"
-              alt="" />
-          </div>
-          <div class="post-card-content">
-            <div class="category">software development</div>
-            <h4>Understanding the Basics of Web Development</h4>
-            <div class="author-date d-flex justify-content-between">
-              <div class="author">
-                <i class="fa-regular fa-clock"></i> 3 mins read
-              </div>
-              <div class="date">
-                <i class="fa-solid fa-calendar-days"></i> 12th June, 2024
-              </div>
-            </div>
-          </div>
-        </a>
-      </div>
-      <div class="post-card">
-        <a href="blog-post.php">
-          <div class="post-card-img">
-            <img
-              src="https://placehold.co/600x400?text=Hello+World"
-              alt="" />
-          </div>
-          <div class="post-card-content">
-            <div class="category">software development</div>
-            <h4>Understanding the Basics of Web Development</h4>
-            <div class="author-date d-flex justify-content-between">
-              <div class="author">
-                <i class="fa-regular fa-clock"></i> 3 mins read
-              </div>
-              <div class="date">
-                <i class="fa-solid fa-calendar-days"></i> 12th June, 2024
-              </div>
-            </div>
-          </div>
-        </a>
-      </div>
-      <div class="post-card">
-        <a href="blog-post.php">
-          <div class="post-card-img">
-            <img
-              src="https://placehold.co/600x400?text=Hello+World"
-              alt="" />
-          </div>
-          <div class="post-card-content">
-            <div class="category">software development</div>
-            <h4>Understanding the Basics of Web Development</h4>
-            <div class="author-date d-flex justify-content-between">
-              <div class="author">
-                <i class="fa-regular fa-clock"></i> 3 mins read
-              </div>
-              <div class="date">
-                <i class="fa-solid fa-calendar-days"></i> 12th June, 2024
-              </div>
-            </div>
-          </div>
-        </a>
-      </div>
-      <div class="post-card">
-        <a href="blog-post.php">
-          <div class="post-card-img">
-            <img
-              src="https://placehold.co/600x400?text=Hello+World"
-              alt="" />
-          </div>
-          <div class="post-card-content">
-            <div class="category">software development</div>
-            <h4>Understanding the Basics of Web Development</h4>
-            <div class="author-date d-flex justify-content-between">
-              <div class="author">
-                <i class="fa-regular fa-clock"></i> 3 mins read
-              </div>
-              <div class="date">
-                <i class="fa-solid fa-calendar-days"></i> 12th June, 2024
-              </div>
-            </div>
-          </div>
-        </a>
-      </div>
     </div>
   </div>
 </section>
