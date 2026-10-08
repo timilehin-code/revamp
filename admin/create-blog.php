@@ -16,6 +16,7 @@ if (!isset($_SESSION['admin_logged_in']) || $_SESSION['admin_logged_in'] !== tru
     <!-- NEW / EDIT POST VIEW -->
     <section class="view" id="view-new">
         <form action="/revamp/controllers/create-blog" method="POST" class="panel" enctype="multipart/form-data">
+            <input type="hidden" name="csrf_token" value="<?= generateCsrfToken() ?>">
             <div class="field">
                 <label for="p-title">Post title</label>
                 <input

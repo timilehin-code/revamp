@@ -4,6 +4,7 @@ require_once __DIR__ . '/../../vendor/autoload.php';
 require_once __DIR__ . '/../../config/conn.php';
 
 use models\admin\CreateBlog;
+
 function createPost()
 {
     $connection = $GLOBALS['connection'] ?? null;
@@ -24,6 +25,12 @@ function createPost()
         $tagsArray = array_map('trim', explode(',', $rawTags));
         $tags = json_encode($tagsArray);
         $imagePath = '';
+        $token = $_POST['csrf_token'] ?? '';
+        if (!verifyCsrfToken($token)) {
+            logProjectError("CSRF Verification Failed: Invalid or missing token.");
+            http_response_code(403);
+            die("Invalid security token. Please refresh the page and try again.");
+        }
         if (isset($_FILES['cover_image']) && $_FILES['cover_image']['error'] === UPLOAD_ERR_OK) {
             $fileTmpPath = $_FILES['cover_image']['tmp_name'];
             $fileName    = $_FILES['cover_image']['name'];
