@@ -25,7 +25,12 @@ function sendMail()
     $email   = filter_var(trim($_POST['email'] ?? ''), FILTER_VALIDATE_EMAIL);
     $subject = filter_var(trim($_POST['subject'] ?? ''), FILTER_SANITIZE_FULL_SPECIAL_CHARS);
     $message = filter_var(trim($_POST['message'] ?? ''), FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-
+    $submittedToken = $_POST['csrf_token'] ?? '';
+    if (!verifyCsrfToken($submittedToken)) {
+        logProjectError("CSRF Verification Failed: Invalid or missing token.");
+        http_response_code(403);
+        die("Invalid security token. Please refresh the page and try again.");
+    }
     if (!$email || empty($name) || empty($message)) {
         http_response_code(400);
         $_SESSION['error_message'] = 'Invalid input or email address provided.';

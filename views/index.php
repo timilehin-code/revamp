@@ -216,7 +216,7 @@ if (session_status() === PHP_SESSION_NONE) {
         </div>
     </div>
     <form action="/revamp/mail" class="mt-4" method="POST" id="contact-form">
-        <!-- <input type="hidden" name="csrf_token" value="<?= generateCsrfToken() ?>"> -->
+        <input type="hidden" name="csrf_token" value="<?= generateCsrfToken() ?>">
         <div class="row">
             <div class="col-md-6 mt-2">
                 <input type="text" name="name" class="w-100" id="name" placeholder="Name">
