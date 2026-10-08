@@ -125,6 +125,9 @@ nav {
   align-items: center;
   padding-top: 20px;
   padding-bottom: 20px;
+  position: sticky;
+  top: 0;
+  z-index: 20;
 }
 
 nav img {
@@ -142,9 +145,8 @@ nav h5 {
 .nav-links {
   background-color: var(--to-black-grey-faded);
   backdrop-filter: blur(5px);
-  position: fixed;
-  margin-left: 28%;
-  z-index: 20;
+  position: sticky;
+  top: 0;
   border: 1px solid var(--to-grey);
   padding: 28px 45px;
   display: flex;
@@ -156,22 +158,39 @@ nav h5 {
 }
 .links {
   display: flex;
-  gap: 25px;
+  gap: 20px;
 }
 .links a {
   opacity: 1 !important;
   color: var(--to-white);
   text-decoration: none;
-  font-size: 18px;
+  font-size: 20px;
   font-weight: bold;
-  transition: all 0.5s ease;
+  transition: all 0.3s ease;
+  padding: 10px;
 }
 
 .links a:hover {
-  color: var(--to-purple);
-  border-bottom: 2px solid var(--to-purple);
+  background-color: var(--to-purple-transparent);
+  color: var(--to-white-900);
+  padding: 10px 15px;
+  border-radius: 10px;
 }
-
+.toggler {
+  animation: fadeOut linear both;
+  animation-timeline: scroll(root);
+  animation-range: 0px 150px;
+}
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+    visibility: visible;
+  }
+  to {
+    opacity: 0;
+    visibility: hidden; 
+  }
+}
 .toggler i {
   color: var(--to-white);
   background-color: var(--to-black-grey-faded);
@@ -251,7 +270,7 @@ nav h5 {
 .short-note span a {
   color: #81b64c !important;
 }
-.editor-toolbar{
+.editor-toolbar {
   display: flex !important;
   color: var(--to-white) !important;
   /* flex-wrap: wrap; */
@@ -280,7 +299,7 @@ nav h5 {
   overflow-x: hidden;
 }
 
-.easter-egg{
+.easter-egg {
   margin: auto;
   width: 80%;
 }

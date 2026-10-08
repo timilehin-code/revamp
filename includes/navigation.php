@@ -10,10 +10,11 @@
          <div class="nav-links">
              <!-- the nav links begins -->
              <div class=" links">
-                 <a href="../revamp/home">Home</a>
-                 <a href="../revamp/home#about">About</a>
-                 <a href="../revamp/home#contact">Contact</a>
-                 <a href="../revamp/blog">Blog</a>
+                 <a href="../revamp/home" title="Home"><i class="fa-solid fa-house"></i></a>
+                 <a href="../revamp/home#about" title="About"><i class="fa-solid fa-circle-user"></i></a>
+                 <a href="../revamp/home#contact" title="Contact"><i class="fa-solid fa-envelope"></i></a>
+                 <a href="../revamp/blog" title="Blog"><i class="fa-solid fa-newspaper"></i></a>
+                 <a href="" title="Guestbook"><i class="fa-solid fa-file-signature"></i></a>
              </div>
          </div>
          <!-- the nav links ends -->
