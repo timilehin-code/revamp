@@ -1348,6 +1348,9 @@ button {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 25px;
+  width: 85%;
+  justify-content: center;
+  margin: auto;
 }
 .signature .sign {
   background-color: var(--to-black-grey);

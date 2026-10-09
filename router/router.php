@@ -61,7 +61,13 @@ $router->get('/Admin', function () {
 });
 
 $router->get("/guests", function () {
+    require_once __DIR__ . '/../config/conn.php';
     require_once __DIR__ . '/../views/guests.php';
+});
+$router->post("/controllers/guests", function () {
+    require_once __DIR__ . '/../config/conn.php';
+    require_once __DIR__ . '/../controllers/views/guest.php';
+    saveGuestNote();
 });
 
 // $router->get('/admin/register', function () {

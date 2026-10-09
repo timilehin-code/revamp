@@ -4,15 +4,18 @@ include 'includes/navigation.php';
 ?>
 <section>
     <div class="canvas-wrapper inactive">
-        <form id="noteForm" action="" novalidate>
+        <form id="noteForm" action="/revamp/controllers/guests" method="POST" novalidate>
             <button class="close"><i class="fa-solid fa-xmark"></i></button>
             <!-- Name Input Field -->
+            <input type="hidden" name="csrf_token" value="<?= generateCsrfToken() ?>">
+
             <div>
                 <label for="fullName" class="form-label fw-semibold">
                     Name <span class="text-danger">*</span>
                 </label>
-                <input type="text" class="form-control form-control-lg" id="fullName" placeholder="e.g. Oluwatimilehin" required>
+                <input type="text" name="fullName" class="form-control form-control-lg" id="fullName" placeholder="e.g. Oluwatimilehin" required>
                 <div class="field-error" id="fullNameError">Please enter your name.</div>
+
             </div>
 
             <!-- Short Note Input Field -->
@@ -20,10 +23,10 @@ include 'includes/navigation.php';
                 <label for="shortNote" class="form-label fw-semibold">
                     short note <span class="text-danger">*</span>
                 </label>
-                <input type="text" class="form-control form-control-lg" id="shortNote" placeholder="e.g. I love timi so much" required>
+                <input type="text" name="shortNote" class="form-control form-control-lg" id="shortNote" placeholder="e.g. I love timi so much" required>
                 <div class="field-error" id="shortNoteError">Please enter a short note.</div>
             </div>
-
+            <input type="hidden" name="signature_data" id="signatureData">
             <!-- Drawing Canvas Element -->
             <div>
                 <div class="canvas-container" id="canvasContainer">
@@ -131,26 +134,26 @@ include 'includes/navigation.php';
     </div>
 </section>
 <script>
-    const openModal = document.querySelector(".open-btn");
-    const CloseModal = document.querySelector(".close");
-    const CanvasModal = document.querySelector(".canvas-wrapper");
-    openModal.addEventListener("click", () => {
-        CanvasModal.classList.remove("inactive")
-    })
-    CloseModal.addEventListener("click", () => {
-        CanvasModal.classList.add("inactive")
-    })
     document.addEventListener('DOMContentLoaded', () => {
+        // 1. Safety Guard Check: Ensure required form elements exist before running
         const form = document.getElementById('noteForm');
+        const canvas = document.getElementById('drawingCanvas');
         const fullNameInput = document.getElementById('fullName');
         const shortNoteInput = document.getElementById('shortNote');
+
+        if (!form || !canvas || !fullNameInput || !shortNoteInput) {
+            return;
+        }
+
+        // 2. DOM Elements
+        const ctx = canvas.getContext('2d');
+        const signatureDataInput = document.getElementById('signatureData');
 
         const fullNameError = document.getElementById('fullNameError');
         const shortNoteError = document.getElementById('shortNoteError');
         const canvasError = document.getElementById('canvasError');
 
-        const canvas = document.getElementById('drawingCanvas');
-        const ctx = canvas.getContext('2d');
+        const canvasContainer = document.getElementById('canvasContainer');
         const canvasPlaceholder = document.getElementById('canvasPlaceholder');
 
         const swatches = document.querySelectorAll('.swatch');
@@ -161,14 +164,21 @@ include 'includes/navigation.php';
         const clearCanvasBtn = document.getElementById('clearCanvasBtn');
         const clearFormBtn = document.getElementById('clearFormBtn');
 
-        const modal = document.getElementById('confirmationModal');
+        // Modal Triggers
+        const openModalBtn = document.querySelector('.open-btn');
+        const closeModalBtn = document.querySelector('.close');
+        const canvasWrapper = document.querySelector('.canvas-wrapper');
+
+        // Optional Confirmation Preview Modal
+        const confirmationModal = document.getElementById('confirmationModal');
         const modalNameVal = document.getElementById('modalNameVal');
         const modalNoteVal = document.getElementById('modalNoteVal');
         const modalImgVal = document.getElementById('modalImgVal');
         const closeModalCross = document.getElementById('closeModalCross');
-        const closeModalBtn = document.getElementById('closeModalBtn');
+        const closeConfirmBtn = document.getElementById('closeModalBtn');
         const downloadBtn = document.getElementById('downloadBtn');
 
+        // State Variables
         let isDrawing = false;
         let hasDrawn = false;
         let isEraserMode = false;
@@ -179,9 +189,17 @@ include 'includes/navigation.php';
             y: 0
         };
 
+        // Prevent default touch scrolling on canvas
+        canvas.style.touchAction = 'none';
+
+        // 3. Canvas Resizing & Resolution Handling
         function resizeCanvas() {
-            const container = canvas.parentElement;
+            const container = canvasContainer || canvas.parentElement;
+            if (!container) return;
+
             const rect = container.getBoundingClientRect();
+            if (rect.width === 0 || rect.height === 0) return;
+
             const dpr = window.devicePixelRatio || 1;
 
             let savedImage = null;
@@ -208,19 +226,26 @@ include 'includes/navigation.php';
         window.addEventListener('resize', resizeCanvas);
         resizeCanvas();
 
+        // 4. Modal Open/Close Controls
+        if (openModalBtn && canvasWrapper) {
+            openModalBtn.addEventListener('click', () => {
+                canvasWrapper.classList.remove('inactive');
+                setTimeout(resizeCanvas, 50);
+            });
+        }
+
+        if (closeModalBtn && canvasWrapper) {
+            closeModalBtn.addEventListener('click', () => {
+                canvasWrapper.classList.add('inactive');
+            });
+        }
+
+        // 5. Drawing Engine (Pointer Events)
         function getCoordinates(e) {
             const rect = canvas.getBoundingClientRect();
-            let clientX = e.clientX;
-            let clientY = e.clientY;
-
-            if (e.touches && e.touches.length > 0) {
-                clientX = e.touches[0].clientX;
-                clientY = e.touches[0].clientY;
-            }
-
             return {
-                x: clientX - rect.left,
-                y: clientY - rect.top
+                x: e.clientX - rect.left,
+                y: e.clientY - rect.top
             };
         }
 
@@ -230,9 +255,10 @@ include 'includes/navigation.php';
 
             if (!hasDrawn) {
                 hasDrawn = true;
-                canvasPlaceholder.classList.add('hidden');
-                canvasError.classList.remove('active');
+                if (canvasPlaceholder) canvasPlaceholder.classList.add('hidden');
+                if (canvasError) canvasError.classList.remove('active');
             }
+            canvas.setPointerCapture(e.pointerId);
         }
 
         function draw(e) {
@@ -257,102 +283,116 @@ include 'includes/navigation.php';
             lastPos = currentPos;
         }
 
-        function stopDrawing() {
+        function stopDrawing(e) {
+            if (!isDrawing) return;
             isDrawing = false;
+            try {
+                canvas.releasePointerCapture(e.pointerId);
+            } catch (err) {}
         }
 
-        canvas.addEventListener('mousedown', startDrawing);
-        canvas.addEventListener('mousemove', draw);
-        window.addEventListener('mouseup', stopDrawing);
+        canvas.addEventListener('pointerdown', startDrawing);
+        canvas.addEventListener('pointermove', draw);
+        window.addEventListener('pointerup', stopDrawing);
+        window.addEventListener('pointercancel', stopDrawing);
 
-        canvas.addEventListener('touchstart', (e) => {
-            e.preventDefault();
-            startDrawing(e);
-        }, {
-            passive: false
-        });
-
-        canvas.addEventListener('touchmove', (e) => {
-            e.preventDefault();
-            draw(e);
-        }, {
-            passive: false
-        });
-
-        window.addEventListener('touchend', stopDrawing);
-
+        // 6. Color & Brush Controls
         swatches.forEach(swatch => {
             swatch.addEventListener('click', () => {
                 swatches.forEach(s => s.classList.remove('active'));
                 swatch.classList.add('active');
-                activeColor = swatch.getAttribute('data-color');
-                customColor.value = activeColor;
+                activeColor = swatch.getAttribute('data-color') || '#8a2be2';
+                if (customColor) customColor.value = activeColor;
                 setEraser(false);
             });
         });
 
-        customColor.addEventListener('input', (e) => {
-            activeColor = e.target.value;
-            swatches.forEach(s => s.classList.remove('active'));
-            setEraser(false);
-        });
+        if (customColor) {
+            customColor.addEventListener('input', (e) => {
+                activeColor = e.target.value;
+                swatches.forEach(s => s.classList.remove('active'));
+                setEraser(false);
+            });
+        }
 
-        brushSize.addEventListener('input', (e) => {
-            strokeWidth = parseInt(e.target.value, 10);
-            brushSizeVal.textContent = `${strokeWidth}px`;
-        });
+        if (brushSize) {
+            brushSize.addEventListener('input', (e) => {
+                strokeWidth = parseInt(e.target.value, 10) || 3;
+                if (brushSizeVal) brushSizeVal.textContent = `${strokeWidth}px`;
+            });
+        }
 
         function setEraser(enable) {
             isEraserMode = enable;
-            if (isEraserMode) {
-                eraserBtn.classList.add('active');
-            } else {
-                eraserBtn.classList.remove('active');
+            if (eraserBtn) {
+                eraserBtn.classList.toggle('active', isEraserMode);
             }
         }
 
-        eraserBtn.addEventListener('click', () => {
-            setEraser(!isEraserMode);
-        });
+        if (eraserBtn) {
+            eraserBtn.addEventListener('click', () => setEraser(!isEraserMode));
+        }
 
         function resetCanvas() {
             const rect = canvas.getBoundingClientRect();
             ctx.clearRect(0, 0, rect.width, rect.height);
             hasDrawn = false;
-            canvasPlaceholder.classList.remove('hidden');
+            if (canvasPlaceholder) canvasPlaceholder.classList.remove('hidden');
         }
 
-        clearCanvasBtn.addEventListener('click', resetCanvas);
+        if (clearCanvasBtn) {
+            clearCanvasBtn.addEventListener('click', resetCanvas);
+        }
 
+        // 7. Form Validation & Error Clearing
         function clearFormErrors() {
             fullNameInput.classList.remove('invalid');
             shortNoteInput.classList.remove('invalid');
-            fullNameError.classList.remove('active');
-            shortNoteError.classList.remove('active');
-            canvasError.classList.remove('active');
+            if (fullNameError) fullNameError.classList.remove('active');
+            if (shortNoteError) shortNoteError.classList.remove('active');
+            if (canvasError) canvasError.classList.remove('active');
         }
 
         fullNameInput.addEventListener('input', () => {
             if (fullNameInput.value.trim()) {
                 fullNameInput.classList.remove('invalid');
-                fullNameError.classList.remove('active');
+                if (fullNameError) fullNameError.classList.remove('active');
             }
         });
 
         shortNoteInput.addEventListener('input', () => {
             if (shortNoteInput.value.trim()) {
                 shortNoteInput.classList.remove('invalid');
-                shortNoteError.classList.remove('active');
+                if (shortNoteError) shortNoteError.classList.remove('active');
             }
         });
 
-        clearFormBtn.addEventListener('click', () => {
-            form.reset();
-            resetCanvas();
-            clearFormErrors();
-            setEraser(false);
-        });
+        if (clearFormBtn) {
+            clearFormBtn.addEventListener('click', () => {
+                form.reset();
+                resetCanvas();
+                clearFormErrors();
+                setEraser(false);
+            });
+        }
 
+        // 8. Base64 Export with White Background
+        function exportSignatureDataUrl() {
+            const exportCanvas = document.createElement('canvas');
+            const exportCtx = exportCanvas.getContext('2d');
+
+            exportCanvas.width = canvas.width;
+            exportCanvas.height = canvas.height;
+
+            // Draw solid white background to avoid transparent black rendering
+            exportCtx.fillStyle = '#ffffff';
+            exportCtx.fillRect(0, 0, exportCanvas.width, exportCanvas.height);
+            exportCtx.drawImage(canvas, 0, 0);
+
+            return exportCanvas.toDataURL('image/png');
+        }
+
+        // 9. Form Submission Handling
         form.addEventListener('submit', (e) => {
             e.preventDefault();
             clearFormErrors();
@@ -363,64 +403,66 @@ include 'includes/navigation.php';
 
             if (!nameVal) {
                 fullNameInput.classList.add('invalid');
-                fullNameError.classList.add('active');
+                if (fullNameError) fullNameError.classList.add('active');
                 valid = false;
             }
 
             if (!noteVal) {
                 shortNoteInput.classList.add('invalid');
-                shortNoteError.classList.add('active');
+                if (shortNoteError) shortNoteError.classList.add('active');
                 valid = false;
             }
 
             if (!hasDrawn) {
-                canvasError.classList.add('active');
+                if (canvasError) canvasError.classList.add('active');
                 valid = false;
             }
 
             if (!valid) return;
 
-            // Export canvas content with clean white background
-            const exportCanvas = document.createElement('canvas');
-            const exportCtx = exportCanvas.getContext('2d');
-            exportCanvas.width = canvas.width;
-            exportCanvas.height = canvas.height;
+            const dataUrl = exportSignatureDataUrl();
 
-            exportCtx.fillStyle = '#ffffff';
-            exportCtx.fillRect(0, 0, exportCanvas.width, exportCanvas.height);
-            exportCtx.drawImage(canvas, 0, 0);
+            // Pass Base64 string to hidden input field
+            if (signatureDataInput) {
+                signatureDataInput.value = dataUrl;
+            }
 
-            const dataUrl = exportCanvas.toDataURL('image/png');
+            if (confirmationModal) {
+                if (modalNameVal) modalNameVal.textContent = nameVal;
+                if (modalNoteVal) modalNoteVal.textContent = noteVal;
+                if (modalImgVal) modalImgVal.src = dataUrl;
 
-            modalNameVal.textContent = nameVal;
-            modalNoteVal.textContent = noteVal;
-            modalImgVal.src = dataUrl;
-
-            modal.classList.add('active');
+                confirmationModal.classList.add('active');
+            } else {
+                form.submit();
+            }
         });
 
-        function hideModal() {
-            modal.classList.remove('active');
+        // 10. Confirmation Modal Action Listeners
+        if (closeModalCross) {
+            closeModalCross.addEventListener('click', () => {
+                if (confirmationModal) confirmationModal.classList.remove('active');
+            });
         }
 
-        closeModalCross.addEventListener('click', hideModal);
-        closeModalBtn.addEventListener('click', () => {
-            hideModal();
-            clearFormBtn.click();
-        });
+        if (closeConfirmBtn) {
+            closeConfirmBtn.addEventListener('click', () => {
+                if (confirmationModal) confirmationModal.classList.remove('active');
+                if (clearFormBtn) clearFormBtn.click();
+            });
+        }
 
-        downloadBtn.addEventListener('click', () => {
-            const name = fullNameInput.value.trim().toLowerCase().replace(/[^a-z0-9]/g, '_') || 'drawing';
-            const a = document.createElement('a');
-            a.download = `${name}_signature.png`;
-            a.href = modalImgVal.src;
-            document.body.appendChild(a);
-            a.click();
-            document.body.removeChild(a);
-        });
-
-
-
+        if (downloadBtn) {
+            downloadBtn.addEventListener('click', () => {
+                const name = fullNameInput.value.trim().toLowerCase().replace(/[^a-z0-9]/g, '_') || 'signature';
+                const a = document.createElement('a');
+                a.download = `${name}_signature.png`;
+                a.href = modalImgVal ? modalImgVal.src : exportSignatureDataUrl();
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+            });
+        }
     });
 </script>
 <?php
