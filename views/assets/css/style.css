@@ -1385,7 +1385,8 @@ button {
   color: var(--to-black-grey-500);
 }
 .sign img {
-  width: 200px;
+  width: 300px;
+  /* filter: contrast(1.1); */
 }
 .canvas-wrapper {
   width: 100vw;
@@ -1402,7 +1403,7 @@ button {
   overflow: hidden;
 }
 
-.inactive{
+.inactive {
   display: none;
 }
 
@@ -1494,7 +1495,7 @@ button {
 
 .canvas-container {
   position: relative;
-  background-color: #ffffff;
+  background-color: transparent;
   border-radius: 8px;
   border: 1px solid rgba(138, 43, 226, 0.35);
   height: 180px;

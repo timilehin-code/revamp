@@ -629,8 +629,8 @@ document.addEventListener("DOMContentLoaded", () => {
     exportCanvas.height = canvas.height;
 
     // Draw solid white background to avoid transparent black rendering
-    exportCtx.fillStyle = "#ffffff";
-    exportCtx.fillRect(0, 0, exportCanvas.width, exportCanvas.height);
+    // exportCtx.fillStyle = "#ffffff";
+    // exportCtx.fillRect(0, 0, exportCanvas.width, exportCanvas.height);
     exportCtx.drawImage(canvas, 0, 0);
 
     return exportCanvas.toDataURL("image/png");
