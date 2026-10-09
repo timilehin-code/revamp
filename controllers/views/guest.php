@@ -4,6 +4,7 @@ require_once __DIR__ . '/../../vendor/autoload.php';
 require_once __DIR__ . '/../../config/conn.php';
 
 use models\views\Guests;
+use models\Views\ViewGuests;
 
 function saveGuestNote()
 {
@@ -44,4 +45,10 @@ function saveGuestNote()
         header("Location: /revamp/guests");
         exit;
     }
+}
+$connection = $GLOBALS['connection'] ?? null;
+
+if ($connection) {
+    $viewGuests = new ViewGuests($connection);
+    $allGuests = $viewGuests->getAllGuests();
 }

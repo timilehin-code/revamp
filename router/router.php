@@ -10,9 +10,6 @@ $router->get('/', function () {
     require_once __DIR__ . '/../views/index.php';
 });
 
-
-
-
 // 404 Handler
 $router->set404(function () {
     header('HTTP/1.1 404 Not Found');
