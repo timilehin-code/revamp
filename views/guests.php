@@ -95,8 +95,12 @@ include 'controllers/views/guest.php';
         <hr>
         <div class="signatures">
             <?php foreach ($allGuests as $guest) { ?>
-                <div class="signature">
-                    <div class="sign">
+
+                <div class="sign">
+                    <div class="note">
+                        <p><?= htmlspecialchars($guest['note']) ?></p>
+                    </div>
+                    <div class="signature">
                         <img src="<?= htmlspecialchars($guest['signature']) ?>" alt="<?= htmlspecialchars($guest['name']) ?>'s signature">
                     </div>
                     <div class="guest">

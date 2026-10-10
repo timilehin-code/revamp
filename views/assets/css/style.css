@@ -1348,45 +1348,50 @@ button {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 25px;
+  /* width: 85%; */
+  /* justify-content: center; */
+  /* margin: auto; */
+}
+.note {
+  padding-top: 5px;
   width: 85%;
-  justify-content: center;
-  margin: auto;
+  font-family: cursive;
+  font-style: italic;
+  color: var(--to-white);
 }
-.signature .sign {
-  background-color: var(--to-black-grey);
-  border-radius: 5px;
-  padding: 20px;
-  box-shadow: 2px 2px 22px -3px rgba(0, 0, 0, 0.35);
-  -webkit-box-shadow: 2px 2px 22px -3px rgba(0, 0, 0, 0.35);
-  -moz-box-shadow: 2px 2px 22px -3px rgba(0, 0, 0, 0.35);
-  display: flex;
-  justify-content: center;
-  transition: all 0.3s ease;
+.sign {
+  border-left: 2px solid var(--to-purple-transparent);
+  padding-left: 10px;
+  transition: 0.5s ease;
 }
-
 .sign:hover {
-  border: 1px solid var(--to-purple);
-  transform: translateX(2px);
+  border-left: 2px solid var(--to-purple-light);
+  
 }
-
+.signature {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid var(--to-purple-transparent);
+}
+.signature img {
+  width: 300px;
+}
 .guest {
   display: flex;
+  align-items: center;
   justify-content: space-between;
-  padding: 5px 15px;
+  padding-top: 5px;
 }
-
 .guest p {
   font-weight: 700;
+  text-transform: capitalize;
+  letter-spacing: 2px;
   color: var(--to-white);
-  letter-spacing: 1px;
 }
 .guest small {
   font-family: monospace;
-  color: var(--to-black-grey-500);
-}
-.sign img {
-  width: 300px;
-  /* filter: contrast(1.1); */
+  color: var(--to-white);
 }
 .canvas-wrapper {
   width: 100vw;

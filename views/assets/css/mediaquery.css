@@ -163,6 +163,10 @@
     margin: auto;
     width: 80%;
   }
+  .signatures {
+    display: flex;
+    flex-direction: column;
+  }
 }
 
 @media (min-width: 450px) and (max-width: 780px) {
@@ -310,5 +314,9 @@
   .blog-note p {
     font-size: 18px;
     text-align: justify;
+  }
+  .signature {
+    display: flex;
+    flex-direction: column;
   }
 }
