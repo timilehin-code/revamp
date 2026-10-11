@@ -116,5 +116,11 @@ $router->post('/mail', function () {
     sendMail();
 });
 
-// Execute the router
+
+$router->get('/api/spotify/now-playing', function () {
+    require_once __DIR__ . '/../controllers/views/spotify.php';
+    nowPlaying();
+});
+
+
 $router->run();
