@@ -32,8 +32,42 @@ if (session_status() === PHP_SESSION_NONE) {
 
 
 <div class="d-flex mt-5 justify-content-center">
-    <div id="spotify-widget" class="spotify-card mt-5">
-        <div class="spotify-loading">Loading...</div>
+    <!-- Spotify Now Playing Widget -->
+    <div id="spotify-widget" class="spotify-card p-4 my-3 text-white"">
+        <div class="d-flex align-items-center mb-3">
+            <!-- Album Art -->
+            <a id="spotify-song-url" href="#" target="_blank" class="flex-shrink-0">
+                <img id="spotify-album-art" class="spotify-album-art" src="" alt="Album Art">
+            </a>
+
+            <!-- Track & Artist Details -->
+            <div class="ms-3 overflow-hidden flex-grow-1">
+                <div class="d-flex align-items-center mb-1">
+                    <a id="spotify-song-title" href="#" target="_blank" class="spotify-song-title text-decoration-none fw-bold text-truncate" style="font-size: 1.15rem; letter-spacing: -0.01em;">Loading...</a>
+
+                    <!-- Animated Equalizer visualizer -->
+                    <div id="spotify-equalizer" class="equalizer">
+                        <span class="bar"></span>
+                        <span class="bar"></span>
+                        <span class="bar"></span>
+                        <span class="bar"></span>
+                    </div>
+                </div>
+                <div id="spotify-artist" class="text-muted text-truncate" style="font-size: 0.95rem; color: #7f7f7f !important;">Artist</div>
+            </div>
+        </div>
+
+        <!-- Inset Progress & Timing row -->
+        <div class="px-1">
+            <div class="spotify-progress-container mb-2">
+                <div id="spotify-progress-bar" class="spotify-progress-bar"></div>
+            </div>
+
+            <div class="d-flex justify-content-between text-muted" style="font-size: 0.8rem; color: #7f7f7f !important;">
+                <span id="spotify-current-time">0:00</span>
+                <span id="spotify-duration">0:00</span>
+            </div>
+        </div>
     </div>
 </div>
 <!-- profile and about my self ends -->
@@ -45,6 +79,7 @@ if (session_status() === PHP_SESSION_NONE) {
             <div class="overflow-hidden d-flex stacks-logo  m-auto align-items-center justify-content-around">
                 <div class="d-flex logo">
                     <img src="views/assets/img/php_logo.png" alt="">
+                    <img src="views/assets/img/Laravel-logo.png" alt="">
                     <img src="views/assets/img/mysql_logo.png" alt="">
                     <img src="views/assets/img/javascript_logo.png" alt="">
                     <img src="views/assets/img/html_logo.png" alt="">
@@ -59,6 +94,7 @@ if (session_status() === PHP_SESSION_NONE) {
                 </div>
                 <div class="d-flex logo">
                     <img src="views/assets/img/php_logo.png" alt="">
+                    <img src="views/assets/img/Laravel-logo.png" alt="">
                     <img src="views/assets/img/mysql_logo.png" alt="">
                     <img src="views/assets/img/javascript_logo.png" alt="">
                     <img src="views/assets/img/html_logo.png" alt="">
@@ -247,7 +283,99 @@ if (session_status() === PHP_SESSION_NONE) {
     ?>
 </div>
 <!-- contact me ends -->
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        let progressMs = 0;
+        let durationMs = 0;
+        let isPlaying = false;
+        let tickInterval = null;
 
+        // Utility: Convert milliseconds into MM:SS format
+        function formatTime(ms) {
+            if (isNaN(ms) || ms < 0) return '0:00';
+            const totalSeconds = Math.floor(ms / 1000);
+            const minutes = Math.floor(totalSeconds / 60);
+            const seconds = totalSeconds % 60;
+            return `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+        }
+
+        // Linear progress interpolation between Spotify API fetches
+        function startTicking() {
+            if (tickInterval) clearInterval(tickInterval);
+
+            tickInterval = setInterval(() => {
+                if (!isPlaying) return;
+
+                progressMs += 1000;
+                if (progressMs > durationMs) progressMs = durationMs;
+
+                // Calculate the progress width
+                const percentage = durationMs > 0 ? (progressMs / durationMs) * 100 : 0;
+
+                const bar = document.getElementById('spotify-progress-bar');
+                const timeDisplay = document.getElementById('spotify-current-time');
+
+                if (bar) bar.style.width = `${percentage}%`;
+                if (timeDisplay) timeDisplay.innerText = formatTime(progressMs);
+            }, 1000);
+        }
+
+        async function updateSpotifyWidget() {
+            try {
+                const res = await fetch('/revamp/api/spotify/now-playing');
+                const data = await res.json();
+
+                const widget = document.getElementById('spotify-widget');
+                const art = document.getElementById('spotify-album-art');
+                const songUrl = document.getElementById('spotify-song-url');
+                const title = document.getElementById('spotify-song-title');
+                const artist = document.getElementById('spotify-artist');
+                const equalizer = document.getElementById('spotify-equalizer');
+                const durationDisplay = document.getElementById('spotify-duration');
+                const progressDisplay = document.getElementById('spotify-current-time');
+                const bar = document.getElementById('spotify-progress-bar');
+
+                // Safeguard: Wait for DOM to finish loading
+                if (!widget || !art || !title || !artist || !equalizer) return;
+
+                if (data.is_playing) {
+                    // Show the widget card
+                    widget.style.display = 'block';
+
+                    art.src = data.album_art;
+                    title.innerText = data.title;
+                    title.href = data.song_url;
+                    songUrl.href = data.song_url;
+                    artist.innerText = data.artist;
+                    equalizer.style.display = 'inline-flex';
+
+                    // Save progress details for the linear timeline
+                    progressMs = data.progress_ms || 0;
+                    durationMs = data.duration_ms || 0;
+                    isPlaying = true;
+
+                    if (durationDisplay) durationDisplay.innerText = formatTime(durationMs);
+                    if (progressDisplay) progressDisplay.innerText = formatTime(progressMs);
+                    if (bar) bar.style.width = `${(progressMs / durationMs) * 100}%`;
+
+                    // Run local timeline interpolation
+                    startTicking();
+                } else {
+                    // If nothing is playing, keep the widget hidden (or edit to show static Offline UI)
+                    widget.style.display = 'none';
+                    isPlaying = false;
+                    if (tickInterval) clearInterval(tickInterval);
+                }
+            } catch (err) {
+                console.error('Error fetching Spotify status:', err);
+            }
+        }
+
+        // Fetch immediately on page load, then request sync check every 15 seconds
+        updateSpotifyWidget();
+        setInterval(updateSpotifyWidget, 15000);
+    });
+</script>
 <?php
 include 'includes/footer.php';
 include 'includes/script.php';

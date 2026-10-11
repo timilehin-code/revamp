@@ -686,153 +686,97 @@ nav h5 {
   align-items: center;
 }
 
+/* Spotify Widget container */
 .spotify-card {
-  width: 340px;
-  background: var(--to-white);
-  border-radius: 16px;
-  padding: 16px;
-  color: var(--to-black);
-  font-family:
-    system-ui,
-    -apple-system,
-    sans-serif;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
-  user-select: none;
+  box-sizing: border-box;
+  background-color: var(--to-black-grey);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 24px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  transition: opacity 0.3s ease;
+  width: 35%;
 }
 
-.spotify-top {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  margin-bottom: 18px;
+.spotify-song-title {
+  color: var(--to-white);
+  font-weight: bold;
+  font-size: 16px;
+  margin: 0;
+  transition: color 0.3s ease;
 }
 
-.spotify-art {
-  width: 64px !important;
-  height: 64px !important;
-  border-radius: 8px;
+.spotify-song-title:hover {
+  color: #1db954;
+  cursor: pointer;
+}
+
+/* Rounded square album art */
+.spotify-album-art {
+  width: 76px;
+  height: 76px;
+  border-radius: 14px;
   object-fit: cover;
-  flex-shrink: 0;
-}
-.spotify-art img {
-  width: 100%;
-  height: 100%;
-  border-radius: 8px;
-  object-fit: cover;
-}
-.spotify-info {
-  flex: 1;
-  min-width: 0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.45);
 }
 
-.spotify-title-row {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: 4px;
-}
-
-.spotify-title {
-  font-size: 15px;
-  font-weight: 600;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.spotify-equalizer {
-  display: flex;
+/* Micro visualizer anim */
+.equalizer {
+  display: inline-flex;
   align-items: flex-end;
-  gap: 2px;
-  height: 14px;
+  gap: 2.5px;
+  width: 20px;
+  height: 12px;
+  margin-left: 8px;
 }
-
-.spotify-equalizer span {
-  width: 3px;
-  background: #1db954;
+.equalizer .bar {
+  display: inline-block;
+  width: 4px;
+  height: 100%;
+  background-color: #1db954; 
+  animation: bounce 0.8s ease-in-out infinite alternate;
+  transform-origin: bottom;
   border-radius: 1px;
-  animation: equalize 1.2s ease-in-out infinite;
 }
-
-.spotify-equalizer span:nth-child(1) {
-  height: 40%;
-  animation-delay: 0s;
-}
-.spotify-equalizer span:nth-child(2) {
-  height: 70%;
-  animation-delay: 0.2s;
-}
-.spotify-equalizer span:nth-child(3) {
-  height: 100%;
-  animation-delay: 0.4s;
-}
-.spotify-equalizer span:nth-child(4) {
-  height: 55%;
+.equalizer .bar:nth-child(1) {
   animation-delay: 0.1s;
+  height: 30%;
+}
+.equalizer .bar:nth-child(2) {
+  animation-delay: 0.35s;
+  height: 60%;
+}
+.equalizer .bar:nth-child(3) {
+  animation-delay: 0.15s;
+  height: 40%;
+}
+.equalizer .bar:nth-child(4) {
+  animation-delay: 0.5s;
+  height: 80%;
 }
 
-@keyframes equalize {
-  0%,
+@keyframes bounce {
+  0% {
+    transform: scaleY(0.3);
+  }
   100% {
-    height: 30%;
-  }
-  50% {
-    height: 100%;
+    transform: scaleY(1.1);
   }
 }
 
-.spotify-artists {
-  font-size: 13px;
-  color: #b3b3b3;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
+/* Custom progress bar sizing */
 .spotify-progress-container {
-  margin-bottom: 14px;
-}
-
-.spotify-progress-bar {
+  background-color: rgba(255, 255, 255, 0.15);
   height: 4px;
-  background: var(--to-grey);
   border-radius: 2px;
+  width: 100%;
+  position: relative;
   overflow: hidden;
-  margin-bottom: 6px;
-  cursor: pointer;
 }
-
-.spotify-progress-fill {
+.spotify-progress-bar {
+  background-color: var(--to-white);
   height: 100%;
-  background: var(--to-black);
-  border-radius: 2px;
   width: 0%;
-  transition: width 0.3s linear;
-}
-
-.spotify-times {
-  display: flex;
-  justify-content: space-between;
-  font-size: 11px;
-  color: #b3b3b3;
-}
-
-.spotify-controls {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 28px;
-}
-
-.spotify-controls button {
-  background: none;
-  border: none;
-  color: white;
-  cursor: pointer;
-  padding: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  border-radius: 2px;
 }
 
 /* blog post  */
@@ -1366,7 +1310,6 @@ button {
 }
 .sign:hover {
   border-left: 2px solid var(--to-purple-light);
-  
 }
 .signature {
   display: flex;
