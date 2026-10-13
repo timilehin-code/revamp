@@ -1,4 +1,5 @@
 <?php
+$title = "Olúwàtimíléhìn. | Blog - my thoughts, ideas, and experiences.";
 include 'includes/header.php';
 include 'includes/navigation.php';
 include 'controllers/views/blog.php';

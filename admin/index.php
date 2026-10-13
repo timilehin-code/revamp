@@ -1,4 +1,5 @@
 <?php
+$title = "Olúwàtimíléhìn. | Admin - Blogs";
 include '../includes/header.php';
 if (session_status() === PHP_SESSION_NONE) {
   session_start();

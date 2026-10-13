@@ -1,4 +1,5 @@
 <?php
+$title = $post["title"];
 include 'includes/header.php';
 include 'includes/navigation.php';
 $jsonString = $post['tags'];

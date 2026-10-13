@@ -1,4 +1,5 @@
 <?php
+$title = "Olúwàtimíléhìn. | Software Engineer.";
 include 'includes/header.php';
 include 'includes/navigation.php';
 if (session_status() === PHP_SESSION_NONE) {

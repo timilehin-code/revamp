@@ -1,4 +1,5 @@
 <?php
+$title = "Olúwàtimíléhìn. | 404 - Page Not Found";
 include 'includes/header.php';
 // include 'includes/navigation.php';
 ?>

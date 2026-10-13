@@ -1,4 +1,5 @@
 <?php
+$title = "Olúwàtimíléhìn. | Guestbook - Leave your mark.";
 include 'includes/header.php';
 include 'includes/navigation.php';
 include 'controllers/views/guest.php';

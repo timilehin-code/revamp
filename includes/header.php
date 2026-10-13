@@ -35,7 +35,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/easymde/dist/easymde.min.css">
     <!--  Highlight.js Theme CSS (e.g. Atom One Dark) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
-    <title>Home</title>
+    <title><?= isset($title) ? $title : 'Default Title' ?></title>
 
 </head>
 
