@@ -102,7 +102,7 @@ $router->get('/admin/blogs/', function () {
 
 // 
 $router->post('/controllers/create-blog', function () {
-    require_once __DIR__ . '/../../config/conn.php';
+    require_once __DIR__ . '/../config/conn.php';
 
     require_once __DIR__ . '/../controllers/admin/createBlog.php';
     createPost();
