@@ -33,8 +33,8 @@ if (session_status() === PHP_SESSION_NONE) {
 
 <div class="d-flex mt-5 justify-content-center">
     <!-- Spotify Now Playing Widget -->
-    <div id="spotify-widget" class="spotify-card p-4 my-3 text-white"">
-        <div class="d-flex align-items-center mb-3">
+    <div id="spotify-widget" class="spotify-card p-4 my-3 text-white">
+        <div class=" d-flex align-items-center mb-3">
             <!-- Album Art -->
             <a id="spotify-song-url" href="#" target="_blank" class="flex-shrink-0">
                 <img id="spotify-album-art" class="spotify-album-art" src="" alt="Album Art">
@@ -67,6 +67,17 @@ if (session_status() === PHP_SESSION_NONE) {
                 <span id="spotify-current-time">0:00</span>
                 <span id="spotify-duration">0:00</span>
             </div>
+        </div>
+        <div class="music-platforms d-flex justify-content-center mt-3">
+            <a id="platform-spotify" href="#" target="_blank" class="text-decoration-none me-3" title="Listen on Spotify">
+                <img src="views/assets/img/spotify.png" alt="Spotify">
+            </a>
+            <a id="platform-apple" href="#" target="_blank" class="text-decoration-none me-3" title="Listen on Apple Music">
+                <img src="views/assets/img/apple-music.png" alt="Apple Music">
+            </a>
+            <a id="platform-ytmusic" href="#" target="_blank" class="text-decoration-none" title="Listen on YouTube Music">
+                <img src="views/assets/img/youtube-music.png" alt="YouTube Music">
+            </a>
         </div>
     </div>
 </div>
@@ -290,7 +301,7 @@ if (session_status() === PHP_SESSION_NONE) {
         let isPlaying = false;
         let tickInterval = null;
 
-        // Utility: Convert milliseconds into MM:SS format
+        // Helper function to format milliseconds into MM:SS
         function formatTime(ms) {
             if (isNaN(ms) || ms < 0) return '0:00';
             const totalSeconds = Math.floor(ms / 1000);
@@ -299,7 +310,7 @@ if (session_status() === PHP_SESSION_NONE) {
             return `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
         }
 
-        // Linear progress interpolation between Spotify API fetches
+        // Smooth client-side progress bar ticker
         function startTicking() {
             if (tickInterval) clearInterval(tickInterval);
 
@@ -309,9 +320,7 @@ if (session_status() === PHP_SESSION_NONE) {
                 progressMs += 1000;
                 if (progressMs > durationMs) progressMs = durationMs;
 
-                // Calculate the progress width
                 const percentage = durationMs > 0 ? (progressMs / durationMs) * 100 : 0;
-
                 const bar = document.getElementById('spotify-progress-bar');
                 const timeDisplay = document.getElementById('spotify-current-time');
 
@@ -320,11 +329,13 @@ if (session_status() === PHP_SESSION_NONE) {
             }, 1000);
         }
 
+        // Main function to fetch playing status and update DOM
         async function updateSpotifyWidget() {
             try {
                 const res = await fetch('/revamp/api/spotify/now-playing');
                 const data = await res.json();
 
+                // Select widget elements
                 const widget = document.getElementById('spotify-widget');
                 const art = document.getElementById('spotify-album-art');
                 const songUrl = document.getElementById('spotify-song-url');
@@ -335,13 +346,19 @@ if (session_status() === PHP_SESSION_NONE) {
                 const progressDisplay = document.getElementById('spotify-current-time');
                 const bar = document.getElementById('spotify-progress-bar');
 
-                // Safeguard: Wait for DOM to finish loading
+                // Select music platform link elements
+                const spotifyBtn = document.getElementById('platform-spotify');
+                const appleBtn = document.getElementById('platform-apple');
+                const ytMusicBtn = document.getElementById('platform-ytmusic');
+
+                // Safeguard: Ensure core elements exist before proceeding
                 if (!widget || !art || !title || !artist || !equalizer) return;
 
                 if (data.is_playing) {
-                    // Show the widget card
+                    // Display the widget card
                     widget.style.display = 'block';
 
+                    // Populate track details
                     art.src = data.album_art;
                     title.innerText = data.title;
                     title.href = data.song_url;
@@ -349,7 +366,7 @@ if (session_status() === PHP_SESSION_NONE) {
                     artist.innerText = data.artist;
                     equalizer.style.display = 'inline-flex';
 
-                    // Save progress details for the linear timeline
+                    // Save progress & duration
                     progressMs = data.progress_ms || 0;
                     durationMs = data.duration_ms || 0;
                     isPlaying = true;
@@ -358,20 +375,32 @@ if (session_status() === PHP_SESSION_NONE) {
                     if (progressDisplay) progressDisplay.innerText = formatTime(progressMs);
                     if (bar) bar.style.width = `${(progressMs / durationMs) * 100}%`;
 
-                    // Run local timeline interpolation
+                    // Generate dynamic music platform search links
+                    const searchQuery = encodeURIComponent(`${data.artist} ${data.title}`);
+
+                    if (spotifyBtn) spotifyBtn.href = data.song_url;
+                    if (appleBtn) appleBtn.href = `https://music.apple.com/us/search?term=${searchQuery}`;
+                    if (ytMusicBtn) ytMusicBtn.href = `https://music.youtube.com/search?q=${searchQuery}`;
+
+                    // Start local timeline ticker
                     startTicking();
                 } else {
-                    // If nothing is playing, keep the widget hidden (or edit to show static Offline UI)
+                    // Hide widget when offline
                     widget.style.display = 'none';
                     isPlaying = false;
                     if (tickInterval) clearInterval(tickInterval);
+
+                    // Reset platform links
+                    if (spotifyBtn) spotifyBtn.removeAttribute('href');
+                    if (appleBtn) appleBtn.removeAttribute('href');
+                    if (ytMusicBtn) ytMusicBtn.removeAttribute('href');
                 }
             } catch (err) {
                 console.error('Error fetching Spotify status:', err);
             }
         }
 
-        // Fetch immediately on page load, then request sync check every 15 seconds
+        // Execute immediately on page load & poll every 15 seconds
         updateSpotifyWidget();
         setInterval(updateSpotifyWidget, 15000);
     });
