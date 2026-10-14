@@ -13,10 +13,6 @@ class ComposerStaticInitc9751b697eacdf2794c850a8a11f3692
     );
 
     public static $prefixLengthsPsr4 = array (
-        'm' =>
-        array (
-            'models\\' => 7,
-        ),
         'S' =>
         array (
             'Symfony\\Polyfill\\Php80\\' => 23,
@@ -27,6 +23,10 @@ class ComposerStaticInitc9751b697eacdf2794c850a8a11f3692
         array (
             'PhpOption\\' => 10,
             'PHPMailer\\PHPMailer\\' => 20,
+        ),
+        'M' =>
+        array (
+            'Models\\' => 7,
         ),
         'G' =>
         array (
@@ -39,10 +39,6 @@ class ComposerStaticInitc9751b697eacdf2794c850a8a11f3692
     );
 
     public static $prefixDirsPsr4 = array (
-        'models\\' =>
-        array (
-            0 => __DIR__ . '/../..' . '/models',
-        ),
         'Symfony\\Polyfill\\Php80\\' =>
         array (
             0 => __DIR__ . '/..' . '/symfony/polyfill-php80',
@@ -62,6 +58,10 @@ class ComposerStaticInitc9751b697eacdf2794c850a8a11f3692
         'PHPMailer\\PHPMailer\\' =>
         array (
             0 => __DIR__ . '/..' . '/phpmailer/phpmailer/src',
+        ),
+        'Models\\' =>
+        array (
+            0 => __DIR__ . '/../..' . '/Models',
         ),
         'GrahamCampbell\\ResultType\\' =>
         array (

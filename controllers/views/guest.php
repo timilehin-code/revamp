@@ -3,8 +3,8 @@
 require_once __DIR__ . '/../../vendor/autoload.php';
 require_once __DIR__ . '/../../config/conn.php';
 
-use models\views\Guests;
-use models\Views\ViewGuests;
+use Models\Views\Guests;
+use Models\Views\ViewGuests;
 
 function saveGuestNote()
 {

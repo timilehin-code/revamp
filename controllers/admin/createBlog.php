@@ -2,7 +2,7 @@
 
 require_once __DIR__ . '/../../vendor/autoload.php';
 
-use models\admin\CreateBlog;
+use Models\Admin\CreateBlog;
 
 function createPost()
 {

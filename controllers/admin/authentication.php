@@ -3,7 +3,7 @@
 require_once __DIR__ . '/../../vendor/autoload.php';
 require_once __DIR__ . '/../../config/conn.php';
 
-use models\admin\Authentication;
+use Models\Admin\Authentication;
 
 if (session_status() === PHP_SESSION_NONE) {
     session_start();

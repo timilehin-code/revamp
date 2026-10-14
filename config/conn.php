@@ -32,7 +32,7 @@ function verifyCsrfToken(?string $token): bool
 $dotEnv = Dotenv::createImmutable(__DIR__ . '/..');
 $dotEnv->load();
 
-use models\Config\Conn;
+use Models\Config\Conn;
 
 // Define log directory path
 $logDir = __DIR__ . '/../logs';
