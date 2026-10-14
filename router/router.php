@@ -122,5 +122,11 @@ $router->get('/api/spotify/now-playing', function () {
     nowPlaying();
 });
 
+// Dynamic Sitemap Route
+$router->get('/sitemap.xml', function () {
+    require_once __DIR__ . '/../controllers/views/sitemap.php';
+    generateSitemap();
+});
+
 
 $router->run();

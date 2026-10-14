@@ -30,7 +30,16 @@
     <link rel="stylesheet" href="../views/assets/css/style.css">
     <link rel="stylesheet" href="../views/assets/css/mediaquery.css">
     <!-- custom css ends  -->
+    <!-- Web App Manifest -->
+    <link rel="manifest" href="/revamp/manifest.json">
 
+    <!-- Mobile Address Bar Color (matches dark UI theme) -->
+    <meta name="theme-color" content="#000000">
+
+    <!-- iOS Safari Support -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="apple-touch-icon" href="/revamp/views/assets/img/profile.png">
     <!-- EasyMDE CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/easymde/dist/easymde.min.css">
     <!--  Highlight.js Theme CSS (e.g. Atom One Dark) -->
