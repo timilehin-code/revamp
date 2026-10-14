@@ -37,7 +37,7 @@ $router->get('/blog/{slug}', function ($slug) {
         return;
     }
 
-    $blogsModel = new models\views\Blogs($connection);
+    $blogsModel = new Models\Views\Blogs($connection);
     $post = $blogsModel->getBySlug($slug);
 
     // Render 404 page if no post matches the slug
