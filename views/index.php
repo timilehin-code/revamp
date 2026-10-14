@@ -26,7 +26,7 @@ if (session_status() === PHP_SESSION_NONE) {
             <p class="text-center">I am unbeatable because my only opponent has always been me.</p>
         </div>
         <div class="resume">
-            <a href="" class="text-center"><i class="fa-solid fa-download"></i> Resume</a>
+            <a href="views/assets/resume/OLUWATIMILEHINTAWOSE_CV.pdf" download class="text-center"><i class="fa-solid fa-download"></i> Resume</a>
         </div>
     </div>
 </section>
