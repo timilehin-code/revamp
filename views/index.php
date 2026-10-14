@@ -126,103 +126,60 @@ if (session_status() === PHP_SESSION_NONE) {
     <!-- tech stacks ends  -->
     <!--  My projects and works i have done-->
     <div class="container mt-5 projects">
-        <h1 class=" text-center">My projects</h1>
-        <div class="row mt-3">
-            <div class="col-md-4 mt-4">
-                <a href="">
-                    <div class="work-card">
-                        <div class="work-img">
-                            <img src="views/assets/img/portfolio.jpg" alt="">
-                        </div>
-                        <h4 class=" mt-2">Portfolio</h4>
-                        <p class=" text-justify mt-3">Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                            Nobis deserunt officiis similique reprehenderit eius odit tenetur nesciunt ipsa dolorem,
-                            itaque
-                            pariatur magni eligendi cumque fuga unde amet dolores doloremque eum rem nisi architecto
-                            hic?
-                        </p>
+        <h1 class="text-center">My projects</h1>
+        <p class="text-center">Projects and organizations that I have contributed to.</p>
+        <div class="projects-wrapper">
+            <div class="project">
+                <div class="project-image">
+                    <img src="views/assets/img/Diginat.png" alt="">
+                </div>
+                <div class="project-content">
+                    <h5>Dignat Solutions</h5>
+                    <p>Junior Software engineer</p>
+                    <div class="excerpt">
+                        <p>Technology provider offering software development, IT infrastructure, solar energy, and security solutions.</p>
                     </div>
-                </a>
+                    <a href="https://diginat.net/index.php" target="_blank">Visit <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                </div>
             </div>
-            <div class="col-md-4 mt-4">
-                <a href="">
-                    <div class="work-card">
-                        <div class="work-img">
-                            <img src="views/assets/img/med_record_1.jpg" alt="">
-                        </div>
-                        <h4 class=" mt-2">Portfolio</h4>
-                        <p class=" text-justify mt-3">Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                            Nobis deserunt officiis similique reprehenderit eius odit tenetur nesciunt ipsa dolorem,
-                            itaque
-                            pariatur magni eligendi cumque fuga unde amet dolores doloremque eum rem nisi architecto
-                            hic?
-                        </p>
+            <div class="project">
+                <div class="project-image">
+                    <img src="views/assets/img/learnpod.png" alt="">
+                </div>
+                <div class="project-content">
+                    <h5>LearnPod</h5>
+                    <p>Front-end Tutor</p>
+                    <div class="excerpt">
+                        <p>Digital skills platform offering hybrid, project-based training and certifications.</p>
                     </div>
-                </a>
+                    <a href="https://diginat.net/index.php" target="_blank">Visit <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                </div>
             </div>
-            <div class="col-md-4 mt-4">
-                <a href="">
-                    <div class="work-card">
-                        <div class="work-img">
-                            <img src="views/assets/img/portfolio.jpg" alt="">
-                        </div>
-                        <h4 class="mt-2">Portfolio</h4>
-                        <p class="text-justify mt-3">Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                            Nobis deserunt officiis similique reprehenderit eius odit tenetur nesciunt ipsa dolorem,
-                            itaque
-                            pariatur magni eligendi cumque fuga unde amet dolores doloremque eum rem nisi architecto
-                            hic?
-                        </p>
+            <div class="project">
+                <div class="project-image">
+                    <img src="views/assets/img/shots-by-teni.png" alt="">
+                </div>
+                <div class="project-content">
+                    <h5>Shots by teni</h5>
+                    <p> Software Developer</p>
+                    <div class="excerpt">
+                        <p>a professional mobile event videography and content creation brand based in Lagos, Nigeria.</p>
                     </div>
-                </a>
+                    <a href="https://shots-by-teni.vercel.app/" target="_blank">Visit <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                </div>
             </div>
-            <div class="col-md-4 mt-4">
-                <a href="">
-                    <div class="work-card">
-                        <div class="work-img">
-                            <img src="views/assets/img/portfolio.jpg" alt="">
-                        </div>
-                        <h4 class=" mt-2">Portfolio</h4>
-                        <p class=" text-justify mt-3">Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                            Nobis deserunt officiis similique reprehenderit eius odit tenetur nesciunt ipsa dolorem,
-                            itaque
-                            pariatur magni eligendi cumque fuga unde amet dolores doloremque eum rem nisi architecto
-                            hic?
-                        </p>
+            <div class="project">
+                <div class="project-image">
+                    <img src="views/assets/img/github_logo.png" alt="">
+                </div>
+                <div class="project-content">
+                    <h5>Attendance system</h5>
+                    <p> Software Developer</p>
+                    <div class="excerpt">
+                        <p>Web based attendance system for taking student's attendance at the computer science students at LASUED.</p>
                     </div>
-                </a>
-            </div>
-            <div class="col-md-4 mt-4">
-                <a href="">
-                    <div class="work-card">
-                        <div class="work-img">
-                            <img src="views/assets/img/med_record_1.jpg" alt="">
-                        </div>
-                        <h4 class=" mt-2">Portfolio</h4>
-                        <p class=" text-justify mt-3">Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                            Nobis deserunt officiis similique reprehenderit eius odit tenetur nesciunt ipsa dolorem,
-                            itaque
-                            pariatur magni eligendi cumque fuga unde amet dolores doloremque eum rem nisi architecto
-                            hic?
-                        </p>
-                    </div>
-                </a>
-            </div>
-            <div class="col-md-4 mt-4">
-                <a href="">
-                    <div class="work-card">
-                        <div class="work-img">
-                            <img src="views/assets/img/portfolio.jpg" alt="">
-                        </div>
-                        <h4 class=" mt-2">Portfolio</h4>
-                        <p class=" text-justify mt-3">Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                            Nobis deserunt officiis similique reprehenderit eius odit tenetur nesciunt ipsa dolorem,
-                            itaque
-                            pariatur magni eligendi cumque fuga unde amet dolores doloremque eum rem nisi architecto
-                            hic?
-                        </p>
-                    </div>
-                </a>
+                    <a href="https://github.com/timilehin-code/attendance_system" target="_blank">Visit <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                </div>
             </div>
         </div>
     </div>
@@ -231,8 +188,8 @@ if (session_status() === PHP_SESSION_NONE) {
 <!-- contact me begings  -->
 <div class="container mt-5 contact" id="contact">
 
-    <h4 class="text-center ">Contact</h4>
-    <h2 class="text-center ">Get In Touch</h2>
+    <h2 class="text-center ">Contact</h2>
+    <h4 class="text-center ">Get In Touch with me</h4>
 
     <div class="row mt-3 contact-cards">
         <div class="col-md-4 mt-2">

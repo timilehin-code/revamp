@@ -340,6 +340,8 @@ nav h5 {
 .stacks h4 {
   font-weight: 700;
   color: var(--to-white);
+  font-family: "Mochiy Pop One", sans-serif;
+  letter-spacing: 5px;
 }
 
 .stacks-logo {
@@ -396,59 +398,102 @@ nav h5 {
 
 .projects h1 {
   font-weight: 600;
+  font-family: "Mochiy Pop One", sans-serif;
+  letter-spacing: 5px;
   color: var(--to-white);
 }
 
-.projects a {
-  text-decoration: none;
+.projects p {
+  font-family: "sans-serif", sans-serif;
+  letter-spacing: 2px;
+  color: var(--to-purple);
+  font-size: 18px;
+  padding-bottom: 10px;
+  padding-top: 10px;
+}
+.projects-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
 }
 
-.work-card {
-  padding: 20px;
-  background-color: var(--to-black-grey);
+.project {
+  background-color: var(--to-black-grey-500);
+  border-radius: 10px;
+  border: 1px solid var(--to-purple);
+}
+.project-content {
+  padding: 10px;
+}
+.project p {
+  font-family: sans-serif;
+  color: var(--to-white);
+  font-size: 13px;
+}
+
+.project-content h5 {
+  font-family: "Mochiy Pop One", sans-serif;
+  font-size: 18px;
+  color: var(--to-white);
+}
+
+.project-image {
+  height: 200px;
   overflow: hidden;
   border-radius: 10px;
-  box-shadow: 2px 2px 22px -3px rgba(0, 0, 0, 0.75);
-  -webkit-box-shadow: 2px 2px 22px -3px rgba(0, 0, 0, 0.75);
-  -moz-box-shadow: 2px 2px 22px -3px rgba(0, 0, 0, 0.75);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid var(--to-purple);
+  background: var(--to-black);
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
 }
 
-.work-img {
-  overflow: hidden;
+.project-image img {
+  padding: 10px;
   border-radius: 10px;
+  width: 100%;
+  object-fit: contain;
+}
+.excerpt {
+  border-left: 2px solid var(--to-purple-transparent);
+  padding-left: 5px;
+}
+.project a {
+  color: var(--to-purple);
+  transition: all 0.5s ease;
 }
 
-.work-card img {
-  width: 315px;
-  transition: transform 0.5s ease;
+.project a:hover {
+  color: var(--to-purple-light);
 }
 
-.work-card img:hover {
-  transform: scale(1.5);
-}
-
-.work-card h4 {
+.excerpt p {
+  font-size: 14px;
   color: var(--to-white);
-  font-size: 30px;
-  font-weight: bold;
+  font-family: "Times New Roman", Times, serif;
+  font-style: italic;
 }
-
-.work-card p {
-  color: var(--to-white);
-  text-align: start;
-}
-
 .contact h4 {
   font-weight: bold;
   color: var(--to-purple);
+  border-bottom: 2px solid var(--to-purple);
+  width: fit-content;
+  text-align: center;
+  margin: auto;
+  padding-bottom: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
 .contact h2 {
   color: var(--to-white);
   font-weight: bold;
-  border-bottom: 2px solid var(--to-purple);
-  margin: auto;
-  width: 20%;
+  font-family: "mochiy pop one", sans-serif;
+  letter-spacing: 5px;
 }
 
 .contact-cards {
@@ -746,7 +791,7 @@ nav h5 {
   display: inline-block;
   width: 4px;
   height: 100%;
-  background-color: #1db954; 
+  background-color: #1db954;
   animation: bounce 0.8s ease-in-out infinite alternate;
   transform-origin: bottom;
   border-radius: 1px;
@@ -867,12 +912,12 @@ nav h5 {
   font-weight: 700;
   font-size: 25px;
 }
-.blog-note hr{
+.blog-note hr {
   background-color: var(--to-purple);
-color: var(--to-purple);
+  color: var(--to-purple);
 }
-.blog-note ol li, 
-.blog-note ul li{
+.blog-note ol li,
+.blog-note ul li {
   color: var(--to-white);
 }
 .blog-note h3 {
@@ -891,8 +936,7 @@ color: var(--to-purple);
   font-weight: 700;
   font-size: 30px;
 }
-.blog-note h1
-hr {
+.blog-note h1 hr {
   background-color: var(--to-purple);
 }
 .blog-note p {
