@@ -494,6 +494,7 @@ nav h5 {
   font-weight: bold;
   font-family: "mochiy pop one", sans-serif;
   letter-spacing: 5px;
+  margin: auto;
 }
 
 .contact-cards {
@@ -532,7 +533,7 @@ nav h5 {
   background-color: transparent;
   outline: none;
   border: none;
-  border-bottom: 2px dotted var(--to-grey);
+  border-bottom: 2px dotted var(--to-white);
   transition: all 0.8s ease;
   color: var(--to-white);
 }

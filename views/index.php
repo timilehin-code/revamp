@@ -161,7 +161,7 @@ if (session_status() === PHP_SESSION_NONE) {
                 </div>
                 <div class="project-content">
                     <h5>Shots by teni</h5>
-                    <p> Software Developer</p>
+                    <p> Software Engineer</p>
                     <div class="excerpt">
                         <p>a professional mobile event videography and content creation brand based in Lagos, Nigeria.</p>
                     </div>
@@ -174,7 +174,7 @@ if (session_status() === PHP_SESSION_NONE) {
                 </div>
                 <div class="project-content">
                     <h5>Attendance system</h5>
-                    <p> Software Developer</p>
+                    <p> Software Engineer</p>
                     <div class="excerpt">
                         <p>Web based attendance system for taking student's attendance at the computer science students at LASUED.</p>
                     </div>
