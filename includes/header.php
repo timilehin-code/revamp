@@ -2,10 +2,29 @@
 <html lang="en">
 
 <head>
+    <?php
+    $metaTitle = $title ?? 'Olúwàtimíléhìn. | Software Engineer.';
+    $metaDescription = $description ?? 'Portfolio and blog of Olúwàtimíléhìn, a software engineer and computer science student.';
+    $metaType = $ogType ?? 'website';
+    $requestScheme = !empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off' ? 'https' : 'http';
+    $siteOrigin = $requestScheme . '://' . ($_SERVER['HTTP_HOST'] ?? 'localhost');
+    $pageUrl = $siteOrigin . ($_SERVER['REQUEST_URI'] ?? '/revamp/');
+    $imagePath = $ogImage ?? '/revamp/views/assets/img/profile.png';
+    $imageUrl = preg_match('/^https?:\\/\\//i', $imagePath)
+        ? $imagePath
+        : $siteOrigin . '/' . ltrim($imagePath, '/');
+    ?>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta name="Description" content="Enter your description here" />
+    <meta name="description" content="<?= htmlspecialchars($metaDescription, ENT_QUOTES, 'UTF-8') ?>">
+    <meta property="og:title" content="<?= htmlspecialchars($metaTitle, ENT_QUOTES, 'UTF-8') ?>">
+    <meta property="og:type" content="<?= htmlspecialchars($metaType, ENT_QUOTES, 'UTF-8') ?>">
+    <meta property="og:url" content="<?= htmlspecialchars($pageUrl, ENT_QUOTES, 'UTF-8') ?>">
+    <meta property="og:image" content="<?= htmlspecialchars($imageUrl, ENT_QUOTES, 'UTF-8') ?>">
+    <meta property="og:description" content="<?= htmlspecialchars($metaDescription, ENT_QUOTES, 'UTF-8') ?>">
+    <meta property="og:site_name" content="Olúwàtimíléhìn.">
+    <meta property="og:locale" content="en_US">
     <!-- bootstrap css  -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
@@ -44,7 +63,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/easymde/dist/easymde.min.css">
     <!--  Highlight.js Theme CSS (e.g. Atom One Dark) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
-    <title><?= isset($title) ? $title : 'Default Title' ?></title>
+    <title><?= htmlspecialchars($metaTitle, ENT_QUOTES, 'UTF-8') ?></title>
 
 </head>
 

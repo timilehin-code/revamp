@@ -1,5 +1,10 @@
 <?php
 $title = $post["title"];
+$description = trim($post['excerpt'] ?? '') ?: $post['title'];
+$ogType = 'article';
+if (!empty($post['cover_image'])) {
+  $ogImage = '/revamp/' . ltrim($post['cover_image'], '/');
+}
 include 'includes/header.php';
 include 'includes/navigation.php';
 $jsonString = $post['tags'];
