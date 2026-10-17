@@ -1,8 +1,8 @@
 <?php
 $title = "Olúwàtimíléhìn. | Blog - my thoughts, ideas, and experiences.";
+include 'controllers/views/blog.php';
 include 'includes/header.php';
 include 'includes/navigation.php';
-include 'controllers/views/blog.php';
 ?>
 <!-- hero section -->
 <section class="hero-section">

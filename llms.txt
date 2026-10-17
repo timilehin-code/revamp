@@ -1,0 +1,24 @@
+# Olúwàtimíléhìn — Software Engineer
+
+> Personal portfolio and blog of Olúwàtimíléhìn (Timi Tawose), a software engineer and computer science student based in Lagos, Nigeria.
+
+This site presents Timi's background, technical skills, selected projects, writing, and ways to get in touch. It also includes a guestbook and a live listening widget.
+
+## Main pages
+
+- [Home and portfolio](/revamp/): Introduction, background, technologies, selected work, and contact information.
+- [About and skills](/revamp/#about): Software engineering interests and technologies used, including PHP, Laravel, MySQL, JavaScript, HTML, CSS, Python, and related tools.
+- [Projects](/revamp/#about): Selected projects and professional contributions, including work with Dignat Solutions, LearnPod, Shots by Teni, and an attendance system.
+- [Blog](/revamp/blog): Articles about software development, technology, finance, and personal experiences and opinions.
+- [Guestbook](/revamp/guests): A place for visitors to leave a message.
+- [Sitemap](/revamp/sitemap.xml): Public site URLs, including published blog posts.
+
+## Blog content
+
+Blog articles are available at `/revamp/blog/{slug}`. Each article is authored content by Timi; use its page title, excerpt, and article body as the source of truth when summarizing or citing it.
+
+## Notes
+
+- The site is a personal portfolio and publication, not a general software or financial advice service.
+- Project descriptions on the portfolio summarize Timi's selected experience and contributions.
+- The live music widget reflects currently available listening data and may not always have a track to display.
