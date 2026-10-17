@@ -4,8 +4,12 @@ require_once __DIR__ . '/../../vendor/autoload.php';
 
 use Models\Admin\CreateBlog;
 
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
 function createPost()
 {
+
     $connection = $GLOBALS['connection'] ?? null;
 
     if (!$connection) {
