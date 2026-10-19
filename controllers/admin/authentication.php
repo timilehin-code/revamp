@@ -56,7 +56,11 @@ function register()
 
 function login()
 {
+    // RATE LIMIT
+    $maxAttempt = 5;
+    $coolOff = 300;
     $connection = $GLOBALS['connection'] ?? null;
+
 
     if (!$connection) {
         logProjectError("Controller Error: \$connection is null or invalid.");
@@ -78,6 +82,23 @@ function login()
         die("Invalid security token. Please refresh the page and try again.");
     }
 
+    $attempts = $_SESSION['Login_Attempts'] ?? 0;
+    $lastTime = $_SESSION['Last_attempt_time'] ?? 0;
+
+
+    if ($attempts >= $maxAttempt) {
+        $elapsed = time() - $lastTime;
+        if ($elapsed < $coolOff) {
+            $minutes = (int) ceil(($coolOff - $elapsed) / 60);
+            $_SESSION['error_message'] = "Too many failed attempts. Try again in $minutes minute(s).";
+            header("Location: /revamp/admin/login");
+            exit;
+        }
+        $attempts = 0; // lockout expired
+        $_SESSION['Login_Attempts'] = 0;
+    }
+
+
     $name = filter_var(trim($_POST['name'] ?? ''), FILTER_SANITIZE_FULL_SPECIAL_CHARS);
     $pswd = trim($_POST['password'] ?? '');
 
@@ -89,16 +110,19 @@ function login()
 
 
     $auth = new Authentication($name, $pswd, $connection);
-    $user = $auth->login();
-
-    if ($user) {
+    if ($auth->login()) {
+        session_regenerate_id(true);
+        unset($_SESSION['Login_Attempts'], $_SESSION['Last_attempt_time']);
         header("Location: /revamp/admin");
         exit;
-    } else {
-        $_SESSION['error_message'] = "Invalid username or password.";
-        header("Location: /revamp/admin/login");
-        exit;
     }
+    // Record the failure
+    $_SESSION['Login_Attempts']    = $attempts + 1;
+    $_SESSION['Last_attempt_time'] = time();
+    $attemptsLeft = $maxAttempt - $_SESSION['Login_Attempts'];
+    $_SESSION['error_message'] = "Invalid username or password," . $attemptsLeft . " attempt(s) left.";
+    header("Location: /revamp/admin/login");
+    exit;
 }
 
 function logout()

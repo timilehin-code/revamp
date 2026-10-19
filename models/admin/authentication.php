@@ -27,7 +27,7 @@ class Authentication
     {
         try {
             // 1. Check if username already exists in the 'user' table
-            $checkSql = "SELECT id FROM user WHERE userName = :name LIMIT 1";
+            $checkSql = "SELECT id FROM user WHERE username = :name LIMIT 1";
             $checkStmt = $this->conn->prepare($checkSql);
             $checkStmt->execute([':name' => $this->name]);
 
@@ -41,7 +41,7 @@ class Authentication
             $hashedPassword = password_hash($this->pswd, PASSWORD_ARGON2ID);
 
 
-            $sql = "INSERT INTO user (userName, password, created_at) VALUES (:name, :pswd, NOW())";
+            $sql = "INSERT INTO user (username, password, created_at) VALUES (:name, :pswd, NOW())";
             $stmt = $this->conn->prepare($sql);
 
             return $stmt->execute([
