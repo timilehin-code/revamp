@@ -11,7 +11,7 @@ if (class_exists('Dotenv\Dotenv')) {
     $dotenv->safeLoad();
 }
 
-require_once __DIR__ . '/../../models/views/Spotify.php';
+require_once __DIR__ . '/../../Models/views/Spotify.php';
 
 use Models\Views\Spotify;
 
