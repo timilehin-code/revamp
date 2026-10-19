@@ -26,7 +26,7 @@ function createPost()
     if ($_SERVER['REQUEST_METHOD'] === "POST") {
         $title   = trim($_POST['title'] ?? '');
         $slug    = trim($_POST['slug'] ?? '');
-        $excerpt = trim($_POST['Excerpt'] ?? '');
+        $excerpt = trim($_POST['excerpt'] ?? '');
         $content = trim($_POST['content'] ?? '');
         $category = trim($_POST['category'] ?? '');
         $rawTags = trim($_POST['tags'] ?? '');
