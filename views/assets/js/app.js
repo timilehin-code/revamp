@@ -112,6 +112,7 @@ if (blogTitle && blogSlug) {
       .replace(/\s+/g, symbol)
       .replace(/-+/g, symbol);
   });
+  
 }
 
 document.addEventListener("DOMContentLoaded", () => {

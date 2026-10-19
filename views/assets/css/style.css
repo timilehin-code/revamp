@@ -164,6 +164,7 @@ nav h5 {
 .links {
   display: flex;
   gap: 20px;
+  align-items: baseline;
 }
 .links a {
   opacity: 1 !important;
@@ -471,7 +472,7 @@ nav h5 {
   color: var(--to-purple-light);
 }
 
-.excerpt p {
+.excerpt  {
   font-size: 14px;
   color: var(--to-white);
   font-family: "Times New Roman", Times, serif;
@@ -902,6 +903,23 @@ nav h5 {
   width: 80%;
   height: auto;
   object-fit: contain;
+}
+
+.blog-note blockquote {
+  font-family: "Times New Roman", Times, serif;
+  font-style: italic;
+  font-weight: 800;
+  border-left: 4px solid var(--to-grey);
+  padding-left: 10px;
+}
+.blog-excerpt{
+  font-family: "Times New Roman", Times, serif;
+  font-style: italic;
+  font-weight: 800;
+  border-left: 4px solid var(--to-grey);
+  padding-left: 10px;
+  margin: auto;
+  width: fit-content;
 }
 .blog-note h4 {
   color: var(--to-white);

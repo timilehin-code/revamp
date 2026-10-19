@@ -171,6 +171,12 @@
     font-size: 18px;
     text-align: justify;
   }
+
+  .blog-note a{
+    color: var(--to-white);
+    text-decoration: underline;
+    font-style: italic;
+  }
   .short-note {
     margin: auto;
     width: 80%;
