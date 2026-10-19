@@ -26,6 +26,7 @@ if (session_status() === PHP_SESSION_NONE) {
         id=""
         placeholder="password" />
       <button type="submit">Login</button>
+     
     </form>
   </div>
 </section>
