@@ -42,6 +42,30 @@ class Blogs
     }
 
     /**
+     * 
+     * fetch 3  post for related post for users to keep reading
+     * 
+     * 
+     * @return array
+     * 
+     */
+     public function getThreePosts(): array
+    {
+        try {
+            $sql = "SELECT * FROM blog ORDER BY created_at DESC LIMIT 3";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->execute();
+
+            return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        } catch (PDOException $e) {
+            if (function_exists('logProjectError')) {
+                logProjectError("PDO Error in Blogs::getAllPosts(): " . $e->getMessage());
+            }
+            return [];
+        }
+    }
+
+    /**
      * Fetch a single blog post by its slug.
      * 
      * @param string $slug
