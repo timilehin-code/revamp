@@ -18,6 +18,7 @@ if (is_array($tags) && !empty($tags)) {
   // 2. Prepend '#' to each tag and join with spaces
   $formattedTags = implode('  ', array_map(fn($tag) => '#' . trim($tag), $tags));
 }
+include 'controllers/views/relatedPost.php';
 ?>
 <main class="blog-post">
   <div class="container">
@@ -42,6 +43,13 @@ if (is_array($tags) && !empty($tags)) {
         <img src="/revamp/<?= htmlspecialchars($post['cover_image']) ?>" alt="<?= htmlspecialchars($post['title']) ?>">
       <?php endif; ?>
     </div>
+    <?php if ($post['excerpt']): ?>
+      <div class="text-center">
+        <blockquote class="blog-excerpt">
+          <p><?= $post['excerpt'] ?></p>
+        </blockquote>
+      </div>
+    <?php endif; ?>
     <section class="blog-note">
       <?= $post['content'] ?>
     </section>
@@ -68,66 +76,33 @@ if (is_array($tags) && !empty($tags)) {
       <section class="posts-sections">
         <div class="container">
           <div class="post-cards">
-            <div class="post-card">
-              <div class="post-card-img">
-                <img
-                  src="https://placehold.co/600x400?text=Hello+World"
-                  alt="" />
-              </div>
-              <div class="post-card-content">
-                <div class="category">software development</div>
-                <h4>Understanding the Basics of Web Development</h4>
-                <div class="author-date d-flex justify-content-between">
-                  <div class="author">
-                    <i class="fa-regular fa-clock"></i> 3 mins read
+            <?php
+            foreach ($allBlogs as $blog) {
+            ?>
+              <div class="post-card">
+                <a href="/revamp/blog/<?= htmlspecialchars($blog['slug']) ?>">
+                  <div class="post-card-img">
+                    <img
+                      src="/revamp/<?= htmlspecialchars($blog['cover_image']) ?>"
+                      alt="<?php echo htmlspecialchars($blog['title']); ?>" />
                   </div>
-                  <div class="date">
-                    <i class="fa-solid fa-calendar-days"></i> 12th June,
-                    2024
+                  <div class="post-card-content">
+                    <div class="category"><?php echo htmlspecialchars($blog['category']) ?? "Uncategorized"; ?></div>
+                    <h4><?php echo htmlspecialchars($blog['title']); ?></h4>
+                    <div class="author-date d-flex justify-content-between">
+                      <div class="author">
+                        <i class="fa-regular fa-clock"></i> 3 mins read
+                      </div>
+                      <div class="date">
+                        <i class="fa-solid fa-calendar-days"></i><?= date('d M, Y', strtotime(" " . $blog['created_at'])) ?>
+                      </div>
+                    </div>
                   </div>
-                </div>
+                </a>
               </div>
-            </div>
-            <div class="post-card">
-              <div class="post-card-img">
-                <img
-                  src="https://placehold.co/600x400?text=Hello+World"
-                  alt="" />
-              </div>
-              <div class="post-card-content">
-                <div class="category">software development</div>
-                <h4>Understanding the Basics of Web Development</h4>
-                <div class="author-date d-flex justify-content-between">
-                  <div class="author">
-                    <i class="fa-regular fa-clock"></i> 3 mins read
-                  </div>
-                  <div class="date">
-                    <i class="fa-solid fa-calendar-days"></i> 12th June,
-                    2024
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="post-card">
-              <div class="post-card-img">
-                <img
-                  src="https://placehold.co/600x400?text=Hello+World"
-                  alt="" />
-              </div>
-              <div class="post-card-content">
-                <div class="category">software development</div>
-                <h4>Understanding the Basics of Web Development</h4>
-                <div class="author-date d-flex justify-content-between">
-                  <div class="author">
-                    <i class="fa-regular fa-clock"></i> 3 mins read
-                  </div>
-                  <div class="date">
-                    <i class="fa-solid fa-calendar-days"></i> 12th June,
-                    2024
-                  </div>
-                </div>
-              </div>
-            </div>
+            <?php
+            }
+            ?>
           </div>
         </div>
       </section>
@@ -166,7 +141,16 @@ $articleSchema = [
 ];
 ?>
 <script type="application/ld+json">
-<?= json_encode($articleSchema, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES) ?>
+  <?= json_encode($articleSchema, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES) ?>
+</script>
+<script>
+  const quotes = document.querySelectorAll("blockquote");
+  if (quotes) {
+    quotes.forEach((quote) => {
+      quote.textContent = `“${quote.textContent.trim()}”`;
+    });
+
+  }
 </script>
 <?php
 include 'includes/footer.php';
