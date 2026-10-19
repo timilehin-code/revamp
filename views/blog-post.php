@@ -2,9 +2,11 @@
 $title = $post["title"];
 $description = trim($post['excerpt'] ?? '') ?: $post['title'];
 $ogType = 'article';
+$canonicalUrl = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://' . ($_SERVER['HTTP_HOST'] ?? 'localhost') . '/revamp/blog/' . ($post['slug'] ?? '');
 if (!empty($post['cover_image'])) {
   $ogImage = '/revamp/' . ltrim($post['cover_image'], '/');
 }
+$metaRobots = 'index, follow';
 include 'includes/header.php';
 include 'includes/navigation.php';
 $jsonString = $post['tags'];
@@ -134,6 +136,38 @@ if (is_array($tags) && !empty($tags)) {
 </main>
 <!-- 3. Trigger Highlighting -->
 
+<?php
+$articleSchema = [
+  '@context' => 'https://schema.org',
+  '@type' => 'BlogPosting',
+  'headline' => $post['title'] ?? '',
+  'description' => $description,
+  'image' => !empty($post['cover_image']) ? 'https://' . ($_SERVER['HTTP_HOST'] ?? 'localhost') . '/revamp/' . ltrim($post['cover_image'], '/') : 'https://' . ($_SERVER['HTTP_HOST'] ?? 'localhost') . '/revamp/views/assets/img/profile.png',
+  'author' => [
+    '@type' => 'Person',
+    'name' => 'Olúwàtimíléhìn'
+  ],
+  'publisher' => [
+    '@type' => 'Person',
+    'name' => 'Olúwàtimíléhìn',
+    'logo' => [
+      '@type' => 'ImageObject',
+      'url' => 'https://' . ($_SERVER['HTTP_HOST'] ?? 'localhost') . '/revamp/views/assets/img/profile.png'
+    ]
+  ],
+  'datePublished' => !empty($post['created_at']) ? date(DATE_ATOM, strtotime($post['created_at'])) : date(DATE_ATOM),
+  'dateModified' => !empty($post['updated_at']) ? date(DATE_ATOM, strtotime($post['updated_at'])) : (!empty($post['created_at']) ? date(DATE_ATOM, strtotime($post['created_at'])) : date(DATE_ATOM)),
+  'mainEntityOfPage' => [
+    '@type' => 'WebPage',
+    '@id' => $canonicalUrl
+  ],
+  'articleSection' => $post['category'] ?? 'Uncategorized',
+  'keywords' => is_array($tags) ? implode(', ', $tags) : ''
+];
+?>
+<script type="application/ld+json">
+<?= json_encode($articleSchema, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES) ?>
+</script>
 <?php
 include 'includes/footer.php';
 include 'includes/script.php';
