@@ -120,7 +120,7 @@ function login()
     $_SESSION['Login_Attempts']    = $attempts + 1;
     $_SESSION['Last_attempt_time'] = time();
     $attemptsLeft = $maxAttempt - $_SESSION['Login_Attempts'];
-    $_SESSION['error_message'] = "Invalid username or password," . $attemptsLeft . " attempt(s) left.";
+    $_SESSION['error_message'] = "Invalid username or password, $attemptsLeft attempt(s) left.";
     header("Location: /revamp/admin/login");
     exit;
 }
