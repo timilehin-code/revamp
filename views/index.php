@@ -44,7 +44,7 @@ if (session_status() === PHP_SESSION_NONE) {
             <!-- Track & Artist Details -->
             <div class="ms-3 overflow-hidden flex-grow-1">
                 <div class="d-flex align-items-center mb-1">
-                    <a id="spotify-song-title" href="#" target="_blank" class="spotify-song-title text-decoration-none fw-bold text-truncate" style="font-size: 1.15rem; letter-spacing: -0.01em;">Loading...</a>
+                    <a id="spotify-song-title" href="#" target="_blank" class="spotify-song-title text-decoration-none fw-bold text-truncate" style="font-size: 1.15rem; letter-spacing: -0.01em;">nothing is playing right now</a>
 
                     <!-- Animated Equalizer visualizer -->
                     <div id="spotify-equalizer" class="equalizer">
@@ -344,7 +344,7 @@ if (session_status() === PHP_SESSION_NONE) {
                     startTicking();
                 } else {
                     // Hide widget when offline
-                    widget.style.display = 'none';
+                    // widget.style.display = 'none';
                     isPlaying = false;
                     if (tickInterval) clearInterval(tickInterval);
 

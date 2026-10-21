@@ -113,7 +113,7 @@ class Spotify
             'title'      => $data['item']['name'],
             'artist'     => implode(', ', $artists),
             'album'      => $data['item']['album']['name'],
-            'album_art'  => $data['item']['album']['images'][0]['url'] ?? '',
+            'album_art'  => $data['item']['album']['images'][0]['url'] ?? 'views/assets/img/Spotify.png',
             'song_url'   => $data['item']['external_urls']['spotify'] ?? '#',
             'progress_ms' => $data['progress_ms'] ?? 0,
             'duration_ms' => $data['item']['duration_ms'] ?? 0,
